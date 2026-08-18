@@ -1,526 +1,1080 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Velta — Peer-to-Peer Digital Currency</title>
+  <title>Velta — Open Peer-to-Peer Digital Currency</title>
 
   <meta
     name="description"
     content="Velta is an open-source peer-to-peer digital currency, blockchain and mining network."
-  />
+  >
 
   <style>
     :root {
-      --header: #08111f;
-      --header-panel: #0f1b2e;
+      --navy: #081421;
+      --navy-2: #0d2033;
+      --navy-3: #132b43;
 
-      --bg: #ffffff;
-      --panel: #ffffff;
-      --panel-2: #f8fafc;
+      --gold: #d69a24;
+      --gold-light: #f3c65e;
+      --gold-soft: #fff8e9;
 
-      --text: #111827;
-      --muted: #64748b;
+      --text: #17202c;
+      --text-soft: #526173;
+      --text-light: #748296;
 
-      --line: #e2e8f0;
+      --white: #ffffff;
+      --soft: #f7f9fc;
+      --soft-2: #eef3f8;
 
-      --accent: #e7b64f;
-      --accent-dark: #c58f24;
-      --accent-soft: #fff8e7;
+      --border: #dfe6ee;
 
-      --green: #35d07f;
+      --green: #20865d;
+      --green-soft: #edf9f4;
 
-      --shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+      --shadow:
+        0 12px 35px rgba(21, 39, 61, 0.08);
+
+      --radius: 16px;
     }
+
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
+
 
     html {
       scroll-behavior: smooth;
     }
 
+
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
+      font-family:
+        Inter,
+        ui-sans-serif,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+      background: var(--white);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.65;
     }
+
 
     a {
       color: inherit;
       text-decoration: none;
     }
 
+
+    img,
+    svg {
+      max-width: 100%;
+    }
+
+
     .container {
-      width: min(1120px, 92%);
+      width: min(1160px, 92%);
       margin: 0 auto;
     }
 
-    /* =========================
+
+    /* =========================================================
        HEADER
-    ========================== */
+    ========================================================= */
 
     header {
       position: sticky;
       top: 0;
-      z-index: 20;
-      background: var(--header);
+      z-index: 100;
+
+      background: rgba(8, 20, 33, 0.98);
       border-bottom: 1px solid rgba(255,255,255,.08);
-      box-shadow: 0 4px 18px rgba(0,0,0,.08);
     }
 
+
     .nav {
-      min-height: 74px;
+      min-height: 72px;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+
+      gap: 28px;
     }
+
 
     .brand {
       display: flex;
       align-items: center;
       gap: 12px;
+
+      color: #fff;
+
+      font-size: 1.15rem;
       font-weight: 800;
       letter-spacing: 2px;
-      font-size: 1.2rem;
-      color: #ffffff;
     }
 
-    .coin {
-      width: 38px;
-      height: 38px;
+
+    .brand-coin {
+      width: 36px;
+      height: 36px;
+
       border-radius: 50%;
+
       display: grid;
       place-items: center;
-      color: #5a3a00;
+
       font-weight: 900;
+      color: #654100;
 
       background:
-        radial-gradient(
-          circle at 35% 30%,
-          #fff0ad 0 8%,
-          transparent 9%
-        ),
-        linear-gradient(
-          145deg,
-          #ffd86a,
-          #c88a1c
-        );
+        radial-gradient(circle at 35% 28%, #fff0ae 0 7%, transparent 8%),
+        linear-gradient(145deg, #f6cc65, #c98a17);
 
-      border: 2px solid #f6d47f;
+      border: 2px solid #f2cf72;
 
       box-shadow:
-        inset 0 0 0 3px rgba(255,255,255,.16),
-        0 0 24px rgba(231,182,79,.18);
+        inset 0 0 0 3px rgba(255,255,255,.15);
     }
+
 
     .nav-right {
       display: flex;
       align-items: center;
-      gap: 22px;
+      gap: 24px;
     }
+
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 22px;
-      color: #cbd5e1;
-      font-size: .95rem;
+      gap: 21px;
+
+      color: #c7d3df;
+
+      font-size: .92rem;
     }
+
 
     .nav-links a {
-      color: #cbd5e1;
-      transition: .2s ease;
+      transition: color .2s ease;
     }
+
 
     .nav-links a:hover {
-      color: #ffffff;
+      color: #fff;
     }
+
 
     .language-select {
-      background: var(--header-panel);
-      color: #ffffff;
-      border: 1px solid #334155;
-      border-radius: 9px;
-      padding: 9px 12px;
+      background: var(--navy-2);
+      color: #fff;
+
+      border: 1px solid #34506b;
+      border-radius: 8px;
+
+      padding: 8px 10px;
       outline: none;
-      cursor: pointer;
     }
 
-    /* =========================
+
+    /* =========================================================
        HERO
-    ========================== */
+    ========================================================= */
 
     .hero {
-      min-height: 76vh;
+      padding: 86px 0 76px;
+
       display: grid;
-      grid-template-columns: 1.15fr .85fr;
+      grid-template-columns: 1.1fr .9fr;
       align-items: center;
-      gap: 60px;
-      padding: 80px 0;
-      background: #ffffff;
+
+      gap: 70px;
     }
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
 
-      border: 1px solid rgba(231,182,79,.38);
-      background: var(--accent-soft);
-      color: #8a6014;
+    .badge {
+      display: inline-block;
 
-      padding: 7px 12px;
+      padding: 6px 11px;
+
       border-radius: 999px;
 
-      font-size: .82rem;
+      border: 1px solid #edce8c;
+
+      background: var(--gold-soft);
+
+      color: #8a5b0b;
+
+      font-size: .8rem;
       font-weight: 700;
+
+      margin-bottom: 18px;
+    }
+
+
+    .hero h1 {
+      max-width: 720px;
+
+      font-size: clamp(2.8rem, 5vw, 4.4rem);
+      line-height: 1.05;
+
+      letter-spacing: -2.5px;
+
+      margin-bottom: 22px;
+    }
+
+
+    .hero h1 strong {
+      color: var(--gold);
+    }
+
+
+    .hero p {
+      max-width: 700px;
+
+      color: var(--text-soft);
+
+      font-size: 1.08rem;
+
+      margin-bottom: 28px;
+    }
+
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 12px;
 
       margin-bottom: 20px;
     }
 
-    h1 {
-      font-size: clamp(3.4rem, 8vw, 6.5rem);
-      line-height: .95;
-      letter-spacing: -4px;
-      margin-bottom: 24px;
-      color: #111827;
-    }
 
-    .hero h1 span:last-child {
-      color: var(--accent-dark);
-    }
-
-    .hero-text {
-      font-size: 1.15rem;
-      color: var(--muted);
-      max-width: 720px;
-      margin-bottom: 30px;
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-bottom: 24px;
-    }
-
-    .btn {
+    .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
 
-      padding: 13px 20px;
+      min-height: 45px;
 
-      border-radius: 10px;
+      padding: 0 19px;
+
+      border-radius: 9px;
+
       font-weight: 700;
-
-      border: 1px solid var(--line);
-
-      transition:
-        transform .2s ease,
-        box-shadow .2s ease,
-        background .2s ease;
-    }
-
-    .btn-primary {
-      background: linear-gradient(
-        135deg,
-        var(--accent),
-        var(--accent-dark)
-      );
-
-      color: #171006;
-      border: none;
-
-      box-shadow:
-        0 10px 25px rgba(197,143,36,.18);
-    }
-
-    .btn-primary:hover {
-      box-shadow:
-        0 14px 32px rgba(197,143,36,.25);
-    }
-
-    .btn-secondary {
-      background: #ffffff;
-      color: #111827;
-      border: 1px solid #cbd5e1;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .official-note {
-      color: var(--muted);
-      font-size: .9rem;
-    }
-
-    /* =========================
-       COIN
-    ========================== */
-
-    .visual {
-      position: relative;
-      display: grid;
-      place-items: center;
-      min-height: 420px;
-    }
-
-    .big-coin {
-      width: min(330px, 76vw);
-      aspect-ratio: 1;
-
-      border-radius: 50%;
-
-      display: grid;
-      place-items: center;
-
-      position: relative;
-
-      background:
-        radial-gradient(
-          circle at 35% 28%,
-          rgba(255,255,255,.55),
-          transparent 9%
-        ),
-        radial-gradient(
-          circle at center,
-          #efc65c 0 47%,
-          #d99b29 48% 62%,
-          #f1c85e 63% 66%,
-          #aa7218 67% 72%,
-          #e4b446 73%
-        );
-
-      box-shadow:
-        inset 0 0 0 7px rgba(255,255,255,.16),
-        inset 0 0 0 15px rgba(88,49,0,.18),
-        0 25px 60px rgba(15,23,42,.16);
-    }
-
-    .big-coin::before,
-    .big-coin::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-    }
-
-    .big-coin::before {
-      inset: 10%;
-      border: 1px solid rgba(102,60,0,.4);
-    }
-
-    .big-coin::after {
-      inset: 18%;
-      border: 1px dashed rgba(102,60,0,.28);
-    }
-
-    .v {
-      font-size: 9rem;
-      font-weight: 900;
-      line-height: 1;
-
-      color: #6b4307;
-
-      text-shadow:
-        0 2px 0 rgba(255,255,255,.4),
-        0 -2px 0 rgba(74,40,0,.18);
-
-      z-index: 2;
-    }
-
-    /* =========================
-       CARDS
-    ========================== */
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin: 30px 0 80px;
-    }
-
-    .card {
-      background: #ffffff;
-
-      border: 1px solid var(--line);
-      border-radius: 16px;
-
-      padding: 24px;
-
-      box-shadow: var(--shadow);
+      font-size: .94rem;
 
       transition:
         transform .2s ease,
         box-shadow .2s ease;
     }
 
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 16px 40px rgba(15,23,42,.11);
+
+    .button:hover {
+      transform: translateY(-2px);
     }
 
-    .card h3 {
-      margin-bottom: 10px;
-      font-size: 1.05rem;
-      color: #111827;
+
+    .button-primary {
+      background:
+        linear-gradient(135deg, var(--gold-light), var(--gold));
+
+      color: #251902;
+
+      box-shadow:
+        0 9px 24px rgba(214,154,36,.19);
     }
 
-    .card p {
-      color: var(--muted);
-      font-size: .95rem;
+
+    .button-secondary {
+      border: 1px solid #cad5e0;
+      background: #fff;
+      color: #1c2938;
     }
 
-    /* =========================
+
+    .hero-note {
+      color: var(--text-light);
+      font-size: .86rem;
+    }
+
+
+    /* =========================================================
+       HERO COIN
+    ========================================================= */
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+
+    .coin-large {
+      width: min(290px, 70vw);
+      aspect-ratio: 1;
+
+      display: grid;
+      place-items: center;
+
+      position: relative;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle at 34% 27%,
+          rgba(255,255,255,.65),
+          transparent 8%
+        ),
+        radial-gradient(
+          circle,
+          #f2ca65 0 46%,
+          #dda02a 47% 59%,
+          #f1c55d 60% 64%,
+          #a86e14 65% 69%,
+          #dfa934 70%
+        );
+
+      box-shadow:
+        inset 0 0 0 5px rgba(255,255,255,.15),
+        inset 0 0 0 12px rgba(111,72,4,.13),
+        0 25px 60px rgba(19, 39, 60, .14);
+    }
+
+
+    .coin-large::before {
+      content: "";
+
+      position: absolute;
+      inset: 14%;
+
+      border-radius: 50%;
+
+      border: 1px dashed rgba(111,72,4,.28);
+    }
+
+
+    .coin-large span {
+      font-size: 7.2rem;
+      font-weight: 900;
+
+      color: #684207;
+
+      z-index: 2;
+    }
+
+
+    /* =========================================================
        SECTIONS
-    ========================== */
+    ========================================================= */
+
+    section {
+      scroll-margin-top: 90px;
+    }
+
 
     .section {
-      padding: 70px 0;
-      background: #ffffff;
+      padding: 78px 0;
     }
 
-    .section:nth-of-type(even) {
-      background: #f8fafc;
+
+    .section-soft {
+      background: var(--soft);
     }
+
+
+    .section-kicker {
+      color: var(--gold);
+      font-weight: 800;
+
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+
+      font-size: .76rem;
+
+      margin-bottom: 8px;
+    }
+
 
     .section-title {
-      margin-bottom: 10px;
-      font-size: 2.1rem;
-      color: #111827;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+
+      line-height: 1.15;
+
+      letter-spacing: -1.2px;
+
+      margin-bottom: 17px;
     }
 
-    .section-subtitle {
-      color: var(--muted);
-      max-width: 760px;
-      margin-bottom: 28px;
+
+    .section-intro {
+      max-width: 850px;
+
+      color: var(--text-soft);
+
+      font-size: 1.04rem;
+
+      margin-bottom: 40px;
     }
 
-    /* =========================
-       RELEASE
-    ========================== */
 
-    .release-box {
+    .text-block {
+      max-width: 940px;
+
+      color: var(--text-soft);
+
+      font-size: 1rem;
+    }
+
+
+    .text-block p + p {
+      margin-top: 17px;
+    }
+
+
+    /* =========================================================
+       INFO GRID
+    ========================================================= */
+
+    .info-grid {
       display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 24px;
-      align-items: center;
 
-      background: #f8fafc;
+      grid-template-columns:
+        repeat(3, 1fr);
 
-      border: 1px solid var(--line);
-      border-radius: 18px;
+      gap: 18px;
+    }
 
-      padding: 28px;
+
+    .info-card {
+      padding: 23px;
+
+      background: #fff;
+
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
 
       box-shadow: var(--shadow);
     }
 
-    .version {
-      color: var(--accent-dark);
+
+    .info-card .icon {
+      width: 39px;
+      height: 39px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 10px;
+
+      background: var(--gold-soft);
+
+      color: #9a650d;
+
+      margin-bottom: 16px;
+
+      font-size: 1.2rem;
+    }
+
+
+    .info-card h3 {
+      margin-bottom: 8px;
+
+      font-size: 1.03rem;
+    }
+
+
+    .info-card p {
+      color: var(--text-soft);
+
+      font-size: .93rem;
+    }
+
+
+    /* =========================================================
+       BLOCKCHAIN DIAGRAM
+    ========================================================= */
+
+    .diagram-box {
+      margin-top: 38px;
+
+      padding: 32px;
+
+      background: #fff;
+
+      border: 1px solid var(--border);
+      border-radius: 18px;
+
+      box-shadow: var(--shadow);
+    }
+
+
+    .diagram-title {
+      font-size: 1.1rem;
+      margin-bottom: 24px;
+    }
+
+
+    .network-diagram {
+      display: grid;
+
+      grid-template-columns:
+        1fr auto 1fr auto 1fr;
+
+      align-items: center;
+
+      gap: 18px;
+    }
+
+
+    .computer {
+      min-height: 145px;
+
+      display: flex;
+      flex-direction: column;
+
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      padding: 18px;
+
+      border-radius: 14px;
+
+      border: 1px solid var(--border);
+
+      background: var(--soft);
+    }
+
+
+    .computer svg {
+      width: 60px;
+      height: 60px;
+
+      margin-bottom: 11px;
+    }
+
+
+    .computer strong {
+      font-size: .94rem;
+    }
+
+
+    .computer small {
+      color: var(--text-light);
+      margin-top: 4px;
+    }
+
+
+    .arrow {
+      color: var(--gold);
+      font-size: 1.7rem;
+      font-weight: 900;
+    }
+
+
+    /* =========================================================
+       BLOCK CHAIN
+    ========================================================= */
+
+    .chain {
+      display: flex;
+      align-items: center;
+
+      gap: 10px;
+
+      margin-top: 28px;
+
+      overflow-x: auto;
+
+      padding-bottom: 8px;
+    }
+
+
+    .block {
+      min-width: 180px;
+
+      padding: 18px;
+
+      border: 1px solid #d9e2eb;
+      border-radius: 12px;
+
+      background: #fff;
+    }
+
+
+    .block-number {
+      color: var(--gold);
       font-weight: 800;
-      margin-bottom: 6px;
+      font-size: .78rem;
+
+      margin-bottom: 7px;
     }
 
-    .hash {
-      margin-top: 10px;
 
-      font-family:
-        Consolas,
-        "Courier New",
-        monospace;
+    .block code {
+      display: block;
 
-      color: #64748b;
-      font-size: .82rem;
+      color: #69798a;
 
-      overflow-wrap: anywhere;
+      font-size: .72rem;
+
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .warning {
-      margin-top: 18px;
 
-      padding: 15px 18px;
-
-      border-left: 3px solid var(--accent-dark);
-
-      background: var(--accent-soft);
-
-      color: #5f6672;
-
-      border-radius: 6px;
+    .chain-link {
+      color: #9caaba;
+      font-size: 1.4rem;
     }
 
-    /* =========================
-       FOOTER
-    ========================== */
 
-    footer {
-      border-top: 1px solid var(--line);
+    /* =========================================================
+       PROCESS STEPS
+    ========================================================= */
 
-      background: #ffffff;
+    .steps {
+      display: grid;
 
-      margin-top: 60px;
+      grid-template-columns:
+        repeat(4, 1fr);
 
-      padding: 30px 0 50px;
+      gap: 16px;
 
-      color: var(--muted);
+      margin-top: 35px;
+    }
+
+
+    .step {
+      position: relative;
+
+      padding: 22px;
+
+      border-radius: 14px;
+
+      background: #fff;
+
+      border: 1px solid var(--border);
+    }
+
+
+    .step-number {
+      width: 30px;
+      height: 30px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: var(--navy);
+      color: #fff;
+
+      font-size: .8rem;
+      font-weight: 800;
+
+      margin-bottom: 13px;
+    }
+
+
+    .step h3 {
+      font-size: .98rem;
+
+      margin-bottom: 7px;
+    }
+
+
+    .step p {
+      color: var(--text-soft);
+
       font-size: .9rem;
     }
 
+
+    /* =========================================================
+       ART BLOCKS
+    ========================================================= */
+
+    .art-layout {
+      display: grid;
+
+      grid-template-columns:
+        .8fr 1.2fr;
+
+      gap: 38px;
+
+      align-items: center;
+    }
+
+
+    .art-symbol {
+      min-height: 290px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 18px;
+
+      border: 1px solid #ead7a6;
+
+      background:
+        radial-gradient(
+          circle,
+          #fffdf6,
+          #fff8e5
+        );
+    }
+
+
+    .art-symbol-inner {
+      width: 165px;
+      height: 165px;
+
+      display: grid;
+      place-items: center;
+
+      transform: rotate(45deg);
+
+      border: 4px solid #d6a036;
+      border-radius: 28px;
+
+      background: #fff;
+    }
+
+
+    .art-symbol-inner span {
+      transform: rotate(-45deg);
+
+      font-size: 3rem;
+    }
+
+
+    /* =========================================================
+       PARAMETERS
+    ========================================================= */
+
+    .parameters {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 15px;
+
+      margin-top: 30px;
+    }
+
+
+    .parameter {
+      text-align: center;
+
+      padding: 21px 12px;
+
+      background: #fff;
+
+      border: 1px solid var(--border);
+      border-radius: 13px;
+    }
+
+
+    .parameter strong {
+      display: block;
+
+      color: var(--navy);
+
+      font-size: 1.3rem;
+
+      margin-bottom: 3px;
+    }
+
+
+    .parameter span {
+      color: var(--text-light);
+
+      font-size: .83rem;
+    }
+
+
+    /* =========================================================
+       AUTHOR
+    ========================================================= */
+
+    .author-box {
+      display: grid;
+
+      grid-template-columns:
+        230px 1fr;
+
+      gap: 38px;
+
+      padding: 34px;
+
+      background: #fff;
+
+      border: 1px solid var(--border);
+      border-radius: 18px;
+
+      box-shadow: var(--shadow);
+    }
+
+
+    .author-mark {
+      min-height: 220px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 14px;
+
+      background: var(--navy);
+
+      color: #fff;
+
+      font-weight: 900;
+      letter-spacing: 4px;
+
+      font-size: 1.3rem;
+    }
+
+
+    .author-content h3 {
+      font-size: 1.55rem;
+
+      margin-bottom: 16px;
+    }
+
+
+    .author-content p {
+      color: var(--text-soft);
+    }
+
+
+    .author-content p + p {
+      margin-top: 14px;
+    }
+
+
+    /* =========================================================
+       TEST WALLETS
+    ========================================================= */
+
+    .transparency-box {
+      margin-top: 26px;
+
+      padding: 25px;
+
+      border-left: 4px solid var(--green);
+
+      border-radius: 10px;
+
+      background: var(--green-soft);
+    }
+
+
+    .transparency-box h3 {
+      color: #176d4b;
+      margin-bottom: 9px;
+    }
+
+
+    .transparency-box p {
+      color: #43685a;
+    }
+
+
+    /* =========================================================
+       DOWNLOAD
+    ========================================================= */
+
+    .release {
+      display: grid;
+
+      grid-template-columns:
+        1fr auto;
+
+      gap: 30px;
+
+      align-items: center;
+
+      padding: 30px;
+
+      background: #fff;
+
+      border: 1px solid var(--border);
+      border-radius: 18px;
+
+      box-shadow: var(--shadow);
+    }
+
+
+    .release-label {
+      color: var(--gold);
+
+      font-weight: 800;
+      font-size: .8rem;
+
+      margin-bottom: 7px;
+    }
+
+
+    .release h3 {
+      margin-bottom: 6px;
+    }
+
+
+    .release p {
+      color: var(--text-soft);
+    }
+
+
+    .checksum {
+      margin-top: 10px;
+
+      color: var(--text-light);
+
+      font-family:
+        Consolas,
+        monospace;
+
+      font-size: .79rem;
+    }
+
+
+    .security-notice {
+      margin-top: 18px;
+
+      padding: 17px;
+
+      border-radius: 10px;
+
+      background: var(--gold-soft);
+
+      border: 1px solid #ecd49a;
+
+      color: #72531d;
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      border-top: 1px solid var(--border);
+
+      padding: 32px 0 45px;
+
+      color: var(--text-light);
+
+      font-size: .87rem;
+    }
+
+
     .footer-row {
       display: flex;
+
       justify-content: space-between;
-      gap: 20px;
+
       flex-wrap: wrap;
+
+      gap: 18px;
     }
 
-    footer a {
-      color: #374151;
-      font-weight: 700;
-    }
 
-    /* =========================
+    /* =========================================================
        RESPONSIVE
-    ========================== */
+    ========================================================= */
 
     @media (max-width: 900px) {
-
-      .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .hero-text {
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .actions {
-        justify-content: center;
-      }
-
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      .release-box {
-        grid-template-columns: 1fr;
-      }
 
       .nav-links {
         display: none;
       }
 
-      h1 {
-        letter-spacing: -2px;
+
+      .hero {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+      }
+
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .network-diagram {
+        grid-template-columns: 1fr;
+      }
+
+
+      .arrow {
+        transform: rotate(90deg);
+      }
+
+
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+
+      .parameters {
+        grid-template-columns: 1fr 1fr;
+      }
+
+
+      .art-layout {
+        grid-template-columns: 1fr;
+      }
+
+
+      .author-box {
+        grid-template-columns: 1fr;
+      }
+
+
+      .release {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+
+    @media (max-width: 520px) {
+
+      .parameters {
+        grid-template-columns: 1fr;
+      }
+
+
+      .hero h1 {
+        font-size: 2.5rem;
       }
 
     }
@@ -528,902 +1082,1971 @@
   </style>
 </head>
 
+
 <body>
 
-  <header>
+<header>
 
-    <div class="container nav">
+  <div class="container nav">
 
-      <a href="#" class="brand">
-        <div class="coin">V</div>
-        <span>VELTA</span>
-      </a>
+    <a href="#" class="brand">
+      <div class="brand-coin">V</div>
+      VELTA
+    </a>
 
 
-      <div class="nav-right">
+    <div class="nav-right">
 
-        <nav class="nav-links">
+      <nav class="nav-links">
 
-          <a
-            href="#about"
-            data-i18n="nav_about"
-          >
-            About
-          </a>
+        <a href="#about" data-i18n="nav_about">
+          About
+        </a>
 
-          <a
-            href="#network"
-            data-i18n="nav_network"
-          >
-            Network
-          </a>
+        <a href="#blockchain" data-i18n="nav_blockchain">
+          Blockchain
+        </a>
 
-          <a
-            href="#download"
-            data-i18n="nav_download"
-          >
-            Download
-          </a>
+        <a href="#mining" data-i18n="nav_mining">
+          Mining
+        </a>
 
-          <a
-            href="https://github.com/velta-core/velta"
-            target="_blank"
-          >
-            GitHub
-          </a>
+        <a href="#artblocks">
+          Art Blocks
+        </a>
 
-        </nav>
+        <a href="#creator" data-i18n="nav_creator">
+          Creator
+        </a>
 
-
-        <select
-          id="languageSelect"
-          class="language-select"
-          aria-label="Language"
-        >
-
-          <option value="en">
-            English
-          </option>
-
-          <option value="pt">
-            Português
-          </option>
-
-          <option value="es">
-            Español
-          </option>
-
-        </select>
-
-      </div>
-
-    </div>
-
-  </header>
-
-
-  <main>
-
-    <!-- HERO -->
-
-    <section class="container hero">
-
-      <div>
-
-        <div
-          class="eyebrow"
-          data-i18n="official_project"
-        >
-          Official Velta Project
-        </div>
-
-
-        <h1>
-
-          <span data-i18n="hero_line_1">
-            Digital currency.
-          </span>
-
-          <br />
-
-          <span data-i18n="hero_line_2">
-            Peer to peer.
-          </span>
-
-        </h1>
-
-
-        <p
-          class="hero-text"
-          data-i18n="hero_text"
-        >
-          Velta is an open-source peer-to-peer digital currency
-          and blockchain network designed for direct transactions,
-          decentralized mining and transparent verification
-          without a central authority.
-        </p>
-
-
-        <div class="actions">
-
-          <a
-            class="btn btn-primary"
-            href="#download"
-            data-i18n="download_velta"
-          >
-            Download Velta
-          </a>
-
-
-          <a
-            class="btn btn-secondary"
-            href="https://github.com/velta-core/velta"
-            target="_blank"
-            data-i18n="view_source"
-          >
-            View source code
-          </a>
-
-        </div>
-
-
-        <div class="official-note">
-
-          <span data-i18n="official_repo">
-            Official repository and release source:
-          </span>
-
-          <strong>
-            velta-core / velta
-          </strong>
-
-        </div>
-
-      </div>
-
-
-      <div class="visual">
-
-        <div class="big-coin">
-
-          <div class="v">
-            V
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- FEATURES -->
-
-    <section
-      id="about"
-      class="container"
-    >
-
-      <div class="grid">
-
-
-        <div class="card">
-
-          <h3 data-i18n="card_p2p_title">
-            Peer-to-peer network
-          </h3>
-
-          <p data-i18n="card_p2p_text">
-            Velta nodes communicate directly with one another
-            and independently validate the blockchain.
-          </p>
-
-        </div>
-
-
-        <div class="card">
-
-          <h3 data-i18n="card_pow_title">
-            Proof-of-Work mining
-          </h3>
-
-          <p data-i18n="card_pow_text">
-            Miners secure the network,
-            validate blocks and receive VT
-            according to the consensus rules.
-          </p>
-
-        </div>
-
-
-        <div class="card">
-
-          <h3 data-i18n="card_blockchain_title">
-            Transparent blockchain
-          </h3>
-
-          <p data-i18n="card_blockchain_text">
-            Blocks, transactions, wallet addresses
-            and transaction history can be independently
-            verified through the Velta blockchain explorer.
-          </p>
-
-        </div>
-
-
-        <div class="card">
-
-          <h3 data-i18n="card_supply_title">
-            21 million VT
-          </h3>
-
-          <p data-i18n="card_supply_text">
-            Velta has a defined maximum monetary supply
-            and scheduled block reward reductions.
-          </p>
-
-        </div>
-
-
-        <div class="card">
-
-          <h3 data-i18n="card_open_title">
-            Open source
-          </h3>
-
-          <p data-i18n="card_open_text">
-            The source code is published so the network rules
-            and software can be independently inspected.
-          </p>
-
-        </div>
-
-
-        <div class="card">
-
-          <h3 data-i18n="card_keys_title">
-            Direct ownership
-          </h3>
-
-          <p data-i18n="card_keys_text">
-            Wallet private keys remain under the control
-            of the wallet owner.
-            Never share private keys,
-            recovery data or wallet passwords.
-          </p>
-
-        </div>
-
-
-      </div>
-
-    </section>
-
-
-    <!-- NETWORK -->
-
-    <section
-      id="network"
-      class="section"
-    >
-
-      <div class="container">
-
-        <h2
-          class="section-title"
-          data-i18n="network_title"
-        >
-          The Velta network
-        </h2>
-
-
-        <p
-          class="section-subtitle"
-          data-i18n="network_subtitle"
-        >
-          Velta combines a peer-to-peer node network,
-          Proof-of-Work consensus,
-          wallet transactions and an independently
-          verifiable blockchain.
-        </p>
-
-
-        <div class="card">
-
-          <p data-i18n="network_text">
-            The network is designed so each compatible node
-            verifies blocks and transactions according to the
-            same consensus rules.
-
-            Modified clients cannot simply create valid VT
-            or rewrite accepted history unless their blocks
-            satisfy the rules accepted by the network.
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- DOWNLOAD -->
-
-    <section
-      id="download"
-      class="section"
-    >
-
-      <div class="container">
-
-        <h2
-          class="section-title"
-          data-i18n="download_title"
-        >
-          Official download
-        </h2>
-
-
-        <p
-          class="section-subtitle"
-          data-i18n="download_subtitle"
-        >
-          Download Velta only from the official GitHub repository
-          and verify release checksums whenever possible.
-        </p>
-
-
-        <div class="release-box">
-
-          <div>
-
-            <div
-              class="version"
-              data-i18n="current_release"
-            >
-              Current development release
-            </div>
-
-
-            <h3>
-              Velta for Windows
-            </h3>
-
-
-            <p
-              style="
-                color: var(--muted);
-                margin-top: 8px;
-              "
-              data-i18n="release_text"
-            >
-              Official public release packages
-              will be published through GitHub Releases.
-            </p>
-
-
-            <div
-              class="hash"
-              data-i18n="sha_text"
-            >
-              SHA-256:
-              will be published with each official release
-            </div>
-
-          </div>
-
-
-          <a
-            class="btn btn-primary"
-            href="https://github.com/velta-core/velta/releases"
-            target="_blank"
-            data-i18n="official_releases"
-          >
-            Official Releases
-          </a>
-
-        </div>
-
-
-        <div class="warning">
-
-          <strong data-i18n="security_title">
-            Security:
-          </strong>
-
-          <span data-i18n="security_text">
-            third parties may modify open-source code.
-            Software distributed outside this official repository
-            is not an official Velta release unless its checksum
-            and release information match the files published here.
-          </span>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-  </main>
-
-
-  <footer>
-
-    <div class="container footer-row">
-
-      <div data-i18n="footer_text">
-        © 2026 Velta.
-        Open-source peer-to-peer digital currency project.
-      </div>
-
-
-      <div>
-
-        <span data-i18n="official_github">
-          Official GitHub:
-        </span>
+        <a href="#download" data-i18n="nav_download">
+          Download
+        </a>
 
         <a
           href="https://github.com/velta-core/velta"
           target="_blank"
         >
-          velta-core/velta
+          GitHub
         </a>
+
+      </nav>
+
+
+      <select
+        id="languageSelect"
+        class="language-select"
+      >
+
+        <option value="en">
+          English
+        </option>
+
+        <option value="pt">
+          Português
+        </option>
+
+        <option value="es">
+          Español
+        </option>
+
+      </select>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<main>
+
+
+<!-- =======================================================
+     HERO
+======================================================= -->
+
+<section class="container hero">
+
+  <div>
+
+    <div
+      class="badge"
+      data-i18n="official_project"
+    >
+      Official Velta Project
+    </div>
+
+
+    <h1 data-i18n-html="hero_title">
+      An open digital currency built
+      <strong>peer to peer.</strong>
+    </h1>
+
+
+    <p data-i18n="hero_text">
+      Velta is an independent open-source digital currency and
+      blockchain network designed around direct transactions,
+      Proof-of-Work mining, transparent verification and
+      decentralized communication between computers.
+    </p>
+
+
+    <div class="hero-actions">
+
+      <a
+        href="#download"
+        class="button button-primary"
+        data-i18n="download_velta"
+      >
+        Download Velta
+      </a>
+
+
+      <a
+        href="https://github.com/velta-core/velta"
+        target="_blank"
+        class="button button-secondary"
+        data-i18n="source_code"
+      >
+        View source code
+      </a>
+
+    </div>
+
+
+    <div class="hero-note">
+
+      <span data-i18n="official_source">
+        Official project source:
+      </span>
+
+      <strong>
+        velta-core / velta
+      </strong>
+
+    </div>
+
+  </div>
+
+
+  <div class="hero-visual">
+
+    <div class="coin-large">
+      <span>V</span>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     WHAT IS VELTA
+======================================================= -->
+
+<section
+  id="about"
+  class="section section-soft"
+>
+
+  <div class="container">
+
+    <div
+      class="section-kicker"
+      data-i18n="what_kicker"
+    >
+      Understanding Velta
+    </div>
+
+
+    <h2
+      class="section-title"
+      data-i18n="what_title"
+    >
+      What exactly is Velta?
+    </h2>
+
+
+    <div class="text-block">
+
+      <p data-i18n="what_p1">
+        Velta is software, a peer-to-peer network and a digital
+        monetary system operating together. Instead of relying on
+        one central computer to decide which transactions are valid,
+        multiple independent Velta nodes maintain and verify a shared
+        blockchain.
+      </p>
+
+
+      <p data-i18n="what_p2">
+        A user can create a wallet, receive VT, send VT directly to
+        another wallet and independently inspect the blockchain.
+        Miners provide computational work to organize transactions
+        into blocks and protect the history of the network.
+      </p>
+
+
+      <p data-i18n="what_p3">
+        Every compatible node follows the same consensus rules.
+        Those rules define what a valid transaction is, how blocks
+        are connected, how mining difficulty behaves, how new VT can
+        be issued and how the total monetary supply is limited.
+      </p>
+
+
+      <p data-i18n="what_p4">
+        Because the project is open source, the objective is not to
+        ask users to trust a hidden server or hidden accounting
+        system. The software and protocol can be inspected, tested
+        and compared by independent participants.
+      </p>
+
+    </div>
+
+
+    <div class="info-grid" style="margin-top:36px;">
+
+      <div class="info-card">
+
+        <div class="icon">⇄</div>
+
+        <h3 data-i18n="direct_title">
+          Direct transactions
+        </h3>
+
+        <p data-i18n="direct_text">
+          Wallets can transfer VT directly through the Velta
+          network without requiring a central payment database.
+        </p>
+
+      </div>
+
+
+      <div class="info-card">
+
+        <div class="icon">⛏</div>
+
+        <h3 data-i18n="pow_title">
+          Proof-of-Work
+        </h3>
+
+        <p data-i18n="pow_text">
+          Mining provides computational work that helps secure
+          the blockchain and establish accepted blocks.
+        </p>
+
+      </div>
+
+
+      <div class="info-card">
+
+        <div class="icon">✓</div>
+
+        <h3 data-i18n="verify_title">
+          Independent verification
+        </h3>
+
+        <p data-i18n="verify_text">
+          Nodes verify transactions and blocks according to
+          consensus rather than trusting a central authority.
+        </p>
 
       </div>
 
     </div>
 
-  </footer>
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     BLOCKCHAIN
+======================================================= -->
+
+<section
+  id="blockchain"
+  class="section"
+>
+
+  <div class="container">
+
+    <div
+      class="section-kicker"
+      data-i18n="blockchain_kicker"
+    >
+      How the network works
+    </div>
+
+
+    <h2
+      class="section-title"
+      data-i18n="blockchain_title"
+    >
+      Computers forming one shared blockchain
+    </h2>
+
+
+    <p
+      class="section-intro"
+      data-i18n="blockchain_intro"
+    >
+      Velta is not a website database stored on one machine.
+      Compatible computers communicate with peers, exchange
+      transactions and blocks, and independently verify whether
+      the information follows the protocol.
+    </p>
+
+
+    <div class="diagram-box">
+
+      <h3
+        class="diagram-title"
+        data-i18n="diagram_title"
+      >
+        Example of peer-to-peer communication
+      </h3>
+
+
+      <div class="network-diagram">
+
+
+        <div class="computer">
+
+          <svg viewBox="0 0 64 64">
+            <rect
+              x="8"
+              y="10"
+              width="48"
+              height="34"
+              rx="4"
+              fill="#132b43"
+            />
+            <rect
+              x="13"
+              y="15"
+              width="38"
+              height="24"
+              fill="#eaf1f7"
+            />
+            <rect
+              x="26"
+              y="45"
+              width="12"
+              height="6"
+              fill="#132b43"
+            />
+            <rect
+              x="19"
+              y="51"
+              width="26"
+              height="4"
+              rx="2"
+              fill="#132b43"
+            />
+          </svg>
+
+          <strong data-i18n="node_a">
+            Computer A
+          </strong>
+
+          <small data-i18n="wallet_sends">
+            Wallet sends a transaction
+          </small>
+
+        </div>
+
 
+        <div class="arrow">
+          ⇄
+        </div>
+
+
+        <div class="computer">
+
+          <svg viewBox="0 0 64 64">
+            <circle
+              cx="32"
+              cy="32"
+              r="25"
+              fill="#fff4d6"
+              stroke="#d69a24"
+              stroke-width="3"
+            />
+            <path
+              d="M18 32h28M32 18v28"
+              stroke="#98600a"
+              stroke-width="4"
+            />
+          </svg>
 
-  <script>
+          <strong data-i18n="p2p_network">
+            Velta P2P Network
+          </strong>
 
-    const translations = {
+          <small data-i18n="nodes_relay">
+            Peers relay valid information
+          </small>
 
-      en: {
+        </div>
 
-        nav_about: "About",
-        nav_network: "Network",
-        nav_download: "Download",
 
-        official_project:
-          "Official Velta Project",
+        <div class="arrow">
+          ⇄
+        </div>
 
-        hero_line_1:
-          "Digital currency.",
 
-        hero_line_2:
-          "Peer to peer.",
+        <div class="computer">
 
-        hero_text:
-          "Velta is an open-source peer-to-peer digital currency and blockchain network designed for direct transactions, decentralized mining and transparent verification without a central authority.",
+          <svg viewBox="0 0 64 64">
+            <rect
+              x="8"
+              y="10"
+              width="48"
+              height="34"
+              rx="4"
+              fill="#132b43"
+            />
+            <rect
+              x="13"
+              y="15"
+              width="38"
+              height="24"
+              fill="#eaf1f7"
+            />
+            <rect
+              x="26"
+              y="45"
+              width="12"
+              height="6"
+              fill="#132b43"
+            />
+            <rect
+              x="19"
+              y="51"
+              width="26"
+              height="4"
+              rx="2"
+              fill="#132b43"
+            />
+          </svg>
 
-        download_velta:
-          "Download Velta",
+          <strong data-i18n="node_b">
+            Computer B
+          </strong>
 
-        view_source:
-          "View source code",
+          <small data-i18n="node_verifies">
+            Node independently verifies it
+          </small>
 
-        official_repo:
-          "Official repository and release source:",
+        </div>
 
-        card_p2p_title:
-          "Peer-to-peer network",
 
-        card_p2p_text:
-          "Velta nodes communicate directly with one another and independently validate the blockchain.",
+      </div>
 
-        card_pow_title:
-          "Proof-of-Work mining",
+    </div>
 
-        card_pow_text:
-          "Miners secure the network, validate blocks and receive VT according to the consensus rules.",
 
-        card_blockchain_title:
-          "Transparent blockchain",
+    <div class="steps">
 
-        card_blockchain_text:
-          "Blocks, transactions, wallet addresses and transaction history can be independently verified through the Velta blockchain explorer.",
+      <div class="step">
 
-        card_supply_title:
-          "21 million VT",
+        <div class="step-number">
+          1
+        </div>
 
-        card_supply_text:
-          "Velta has a defined maximum monetary supply and scheduled block reward reductions.",
+        <h3 data-i18n="step1_title">
+          A transaction is created
+        </h3>
 
-        card_open_title:
-          "Open source",
+        <p data-i18n="step1_text">
+          A wallet signs a transaction using its private key.
+        </p>
 
-        card_open_text:
-          "The source code is published so the network rules and software can be independently inspected.",
+      </div>
 
-        card_keys_title:
-          "Direct ownership",
 
-        card_keys_text:
-          "Wallet private keys remain under the control of the wallet owner. Never share private keys, recovery data or wallet passwords.",
+      <div class="step">
 
-        network_title:
-          "The Velta network",
+        <div class="step-number">
+          2
+        </div>
 
-        network_subtitle:
-          "Velta combines a peer-to-peer node network, Proof-of-Work consensus, wallet transactions and an independently verifiable blockchain.",
+        <h3 data-i18n="step2_title">
+          Peers receive it
+        </h3>
 
-        network_text:
-          "The network is designed so each compatible node verifies blocks and transactions according to the same consensus rules. Modified clients cannot simply create valid VT or rewrite accepted history unless their blocks satisfy the rules accepted by the network.",
+        <p data-i18n="step2_text">
+          Nodes verify signatures, values and spendable outputs.
+        </p>
 
-        download_title:
-          "Official download",
+      </div>
 
-        download_subtitle:
-          "Download Velta only from the official GitHub repository and verify release checksums whenever possible.",
 
-        current_release:
-          "Current development release",
+      <div class="step">
 
-        release_text:
-          "Official public release packages will be published through GitHub Releases.",
+        <div class="step-number">
+          3
+        </div>
 
-        sha_text:
-          "SHA-256: will be published with each official release",
+        <h3 data-i18n="step3_title">
+          Miners work
+        </h3>
 
-        official_releases:
-          "Official Releases",
+        <p data-i18n="step3_text">
+          Valid transactions can be included in a mined block.
+        </p>
 
-        security_title:
-          "Security:",
+      </div>
 
-        security_text:
-          " third parties may modify open-source code. Software distributed outside this official repository is not an official Velta release unless its checksum and release information match the files published here.",
 
-        footer_text:
-          "© 2026 Velta. Open-source peer-to-peer digital currency project.",
+      <div class="step">
 
-        official_github:
-          "Official GitHub:"
-      },
+        <div class="step-number">
+          4
+        </div>
 
+        <h3 data-i18n="step4_title">
+          The block is verified
+        </h3>
 
-      pt: {
+        <p data-i18n="step4_text">
+          Other nodes independently verify the new block before
+          accepting it.
+        </p>
 
-        nav_about:
-          "Sobre",
+      </div>
 
-        nav_network:
-          "Rede",
+    </div>
 
-        nav_download:
-          "Download",
 
-        official_project:
-          "Projeto Oficial Velta",
+    <h3 style="margin-top:48px;"
+        data-i18n="chain_title">
+      Why old blocks are difficult to change
+    </h3>
 
-        hero_line_1:
-          "Moeda digital.",
 
-        hero_line_2:
-          "Ponto a ponto.",
+    <p
+      class="section-intro"
+      style="margin-top:7px;"
+      data-i18n="chain_intro"
+    >
+      Every block references information from the previous block.
+      Changing historical data changes its cryptographic hash and
+      breaks the relationship with the blocks that follow it.
+    </p>
 
-        hero_text:
-          "Velta é uma moeda digital e uma rede blockchain de código aberto e ponto a ponto, desenvolvida para transações diretas, mineração descentralizada e verificação transparente sem uma autoridade central.",
 
-        download_velta:
-          "Baixar Velta",
+    <div class="chain">
 
-        view_source:
-          "Ver código-fonte",
+      <div class="block">
+        <div class="block-number">BLOCK 100</div>
+        <code>HASH A4F72...</code>
+      </div>
 
-        official_repo:
-          "Repositório oficial e fonte dos lançamentos:",
+      <div class="chain-link">→</div>
 
-        card_p2p_title:
-          "Rede ponto a ponto",
+      <div class="block">
+        <div class="block-number">BLOCK 101</div>
+        <code>PREV A4F72...</code>
+        <code>HASH D91BC...</code>
+      </div>
 
-        card_p2p_text:
-          "Os nós Velta se comunicam diretamente entre si e validam a blockchain de forma independente.",
+      <div class="chain-link">→</div>
 
-        card_pow_title:
-          "Mineração Proof-of-Work",
+      <div class="block">
+        <div class="block-number">BLOCK 102</div>
+        <code>PREV D91BC...</code>
+        <code>HASH 73C0E...</code>
+      </div>
 
-        card_pow_text:
-          "Os mineradores protegem a rede, validam blocos e recebem VT de acordo com as regras de consenso.",
+      <div class="chain-link">→</div>
 
-        card_blockchain_title:
-          "Blockchain transparente",
+      <div class="block">
+        <div class="block-number">BLOCK 103</div>
+        <code>PREV 73C0E...</code>
+        <code>HASH E51AA...</code>
+      </div>
 
-        card_blockchain_text:
-          "Blocos, transações, endereços de carteira e históricos de movimentação podem ser verificados de forma independente através do explorador da blockchain Velta.",
+    </div>
 
-        card_supply_title:
-          "21 milhões de VT",
+  </div>
 
-        card_supply_text:
-          "A Velta possui uma oferta monetária máxima definida e reduções programadas da recompensa por bloco.",
+</section>
 
-        card_open_title:
-          "Código aberto",
 
-        card_open_text:
-          "O código-fonte é publicado para que as regras da rede e o software possam ser inspecionados de forma independente.",
+<!-- =======================================================
+     MINING
+======================================================= -->
 
-        card_keys_title:
-          "Controle direto",
+<section
+  id="mining"
+  class="section section-soft"
+>
 
-        card_keys_text:
-          "As chaves privadas permanecem sob controle do proprietário da carteira. Nunca compartilhe chaves privadas, dados de recuperação ou senhas da carteira.",
+  <div class="container">
 
-        network_title:
-          "A rede Velta",
+    <div
+      class="section-kicker"
+      data-i18n="mining_kicker"
+    >
+      Network security
+    </div>
 
-        network_subtitle:
-          "A Velta combina uma rede de nós ponto a ponto, consenso Proof-of-Work, transações de carteira e uma blockchain verificável de forma independente.",
 
-        network_text:
-          "A rede foi projetada para que cada nó compatível valide blocos e transações segundo as mesmas regras de consenso. Clientes modificados não podem simplesmente criar VT válidos ou reescrever o histórico aceito sem que seus blocos satisfaçam as regras reconhecidas pela rede.",
+    <h2
+      class="section-title"
+      data-i18n="mining_title"
+    >
+      Mining Velta
+    </h2>
 
-        download_title:
-          "Download oficial",
 
-        download_subtitle:
-          "Baixe a Velta somente pelo repositório oficial no GitHub e verifique os checksums dos lançamentos sempre que possível.",
+    <p
+      class="section-intro"
+      data-i18n="mining_intro"
+    >
+      Velta uses Proof-of-Work. Mining software performs
+      computational work in an attempt to create a valid block.
+      Other nodes do not simply trust the miner: the block must
+      still satisfy the consensus rules before being accepted.
+    </p>
 
-        current_release:
-          "Versão atual em desenvolvimento",
 
-        release_text:
-          "Os pacotes públicos oficiais serão publicados através do GitHub Releases.",
+    <div class="info-grid">
 
-        sha_text:
-          "SHA-256: será publicado junto de cada lançamento oficial",
+      <div class="info-card">
 
-        official_releases:
-          "Lançamentos oficiais",
+        <div class="icon">GPU</div>
 
-        security_title:
-          "Segurança:",
+        <h3 data-i18n="gpu_title">
+          GPU mining
+        </h3>
 
-        security_text:
-          " terceiros podem modificar código-fonte aberto. Software distribuído fora deste repositório oficial não é uma versão oficial da Velta, a menos que o checksum e as informações do lançamento correspondam aos arquivos publicados aqui.",
+        <p data-i18n="gpu_text">
+          Velta can use compatible graphics hardware for
+          Proof-of-Work computation.
+        </p>
 
-        footer_text:
-          "© 2026 Velta. Projeto de moeda digital ponto a ponto e código aberto.",
+      </div>
 
-        official_github:
-          "GitHub oficial:"
-      },
 
+      <div class="info-card">
 
-      es: {
+        <div class="icon">%</div>
 
-        nav_about:
-          "Acerca de",
+        <h3 data-i18n="gpu_limit_title">
+          Usage control
+        </h3>
 
-        nav_network:
-          "Red",
+        <p data-i18n="gpu_limit_text">
+          Users can reduce the maximum mining load instead of
+          keeping the GPU continuously at full utilization.
+        </p>
 
-        nav_download:
-          "Descargar",
+      </div>
 
-        official_project:
-          "Proyecto Oficial Velta",
 
-        hero_line_1:
-          "Moneda digital.",
+      <div class="info-card">
 
-        hero_line_2:
-          "Punto a punto.",
+        <div class="icon">°C</div>
 
-        hero_text:
-          "Velta es una moneda digital y una red blockchain de código abierto y punto a punto, diseñada para transacciones directas, minería descentralizada y verificación transparente sin una autoridad central.",
+        <h3 data-i18n="thermal_title">
+          Thermal protection
+        </h3>
 
-        download_velta:
-          "Descargar Velta",
+        <p data-i18n="thermal_text">
+          When supported by the hardware, Velta can monitor GPU
+          temperature and stop mining at a configured limit.
+        </p>
 
-        view_source:
-          "Ver código fuente",
+      </div>
 
-        official_repo:
-          "Repositorio oficial y fuente de lanzamientos:",
+    </div>
 
-        card_p2p_title:
-          "Red punto a punto",
+  </div>
 
-        card_p2p_text:
-          "Los nodos Velta se comunican directamente entre sí y validan la blockchain de forma independiente.",
+</section>
 
-        card_pow_title:
-          "Minería Proof-of-Work",
 
-        card_pow_text:
-          "Los mineros protegen la red, validan bloques y reciben VT de acuerdo con las reglas de consenso.",
+<!-- =======================================================
+     ART BLOCKS
+======================================================= -->
 
-        card_blockchain_title:
-          "Blockchain transparente",
+<section
+  id="artblocks"
+  class="section"
+>
 
-        card_blockchain_text:
-          "Los bloques, transacciones, direcciones de billetera y el historial de movimientos pueden verificarse de forma independiente mediante el explorador blockchain de Velta.",
+  <div class="container">
 
-        card_supply_title:
-          "21 millones de VT",
+    <div class="art-layout">
 
-        card_supply_text:
-          "Velta posee una oferta monetaria máxima definida y reducciones programadas de la recompensa por bloque.",
 
-        card_open_title:
-          "Código abierto",
+      <div class="art-symbol">
 
-        card_open_text:
-          "El código fuente se publica para que las reglas de la red y el software puedan ser inspeccionados de forma independiente.",
+        <div class="art-symbol-inner">
+          <span>◆</span>
+        </div>
 
-        card_keys_title:
-          "Control directo",
+      </div>
 
-        card_keys_text:
-          "Las claves privadas permanecen bajo el control del propietario de la billetera. Nunca comparta claves privadas, datos de recuperación o contraseñas de la billetera.",
 
-        network_title:
-          "La red Velta",
+      <div>
 
-        network_subtitle:
-          "Velta combina una red de nodos punto a punto, consenso Proof-of-Work, transacciones de billetera y una blockchain verificable de forma independiente.",
+        <div class="section-kicker">
+          ART BLOCKS
+        </div>
 
-        network_text:
-          "La red está diseñada para que cada nodo compatible valide bloques y transacciones según las mismas reglas de consenso. Los clientes modificados no pueden simplemente crear VT válidos o reescribir el historial aceptado sin que sus bloques cumplan las reglas reconocidas por la red.",
 
-        download_title:
-          "Descarga oficial",
+        <h2
+          class="section-title"
+          data-i18n="art_title"
+        >
+          Rare digital items created by the blockchain
+        </h2>
 
-        download_subtitle:
-          "Descargue Velta únicamente desde el repositorio oficial de GitHub y verifique los checksums de los lanzamientos siempre que sea posible.",
 
-        current_release:
-          "Versión actual en desarrollo",
+        <div class="text-block">
 
-        release_text:
-          "Los paquetes públicos oficiales serán publicados mediante GitHub Releases.",
+          <p data-i18n="art_p1">
+            Velta includes Art Blocks, a native system for rare
+            digital items associated with eligible blocks.
+          </p>
 
-        sha_text:
-          "SHA-256: se publicará junto con cada lanzamiento oficial",
 
-        official_releases:
-          "Lanzamientos oficiales",
+          <p data-i18n="art_p2">
+            The purpose is different from simply uploading an
+            image to a centralized database. Eligibility is based
+            on rules recognized by the Velta network, allowing
+            compatible nodes to verify whether an Art Block is
+            legitimate.
+          </p>
 
-        security_title:
-          "Seguridad:",
 
-        security_text:
-          " terceros pueden modificar código de fuente abierta. El software distribuido fuera de este repositorio oficial no es una versión oficial de Velta, a menos que su checksum y la información del lanzamiento coincidan con los archivos publicados aquí.",
+          <p data-i18n="art_p3">
+            This makes Art Blocks a native part of the Velta
+            experiment: mining, blockchain history, rarity and
+            digital ownership are connected in the same network.
+          </p>
 
-        footer_text:
-          "© 2026 Velta. Proyecto de moneda digital punto a punto y código abierto.",
+        </div>
 
-        official_github:
-          "GitHub oficial:"
-      }
+      </div>
 
-    };
+    </div>
 
+  </div>
 
-    function applyLanguage(language) {
+</section>
 
-      const dictionary =
-        translations[language]
-        || translations.en;
 
+<!-- =======================================================
+     PARAMETERS
+======================================================= -->
 
-      document
-        .querySelectorAll("[data-i18n]")
-        .forEach(element => {
+<section class="section section-soft">
 
-          const key =
-            element.getAttribute(
-              "data-i18n"
-            );
+  <div class="container">
 
+    <div
+      class="section-kicker"
+      data-i18n="economics_kicker"
+    >
+      Monetary design
+    </div>
 
-          if (
-            dictionary[key]
-            !== undefined
-          ) {
 
-            element.textContent =
-              dictionary[key];
+    <h2
+      class="section-title"
+      data-i18n="economics_title"
+    >
+      Scarcity defined by protocol
+    </h2>
 
-          }
 
-        });
+    <p
+      class="section-intro"
+      data-i18n="economics_intro"
+    >
+      The public network parameters are designed to define
+      issuance through consensus rather than through a central
+      administrator changing balances.
+    </p>
 
 
-      document.documentElement.lang =
-        language;
+    <div class="parameters">
 
+      <div class="parameter">
+        <strong>21M VT</strong>
+        <span data-i18n="max_supply">
+          Maximum supply
+        </span>
+      </div>
 
-      localStorage.setItem(
-        "velta-language",
-        language
-      );
 
-    }
+      <div class="parameter">
+        <strong>≈ 2.5 min</strong>
+        <span data-i18n="block_target">
+          Block target
+        </span>
+      </div>
 
 
-    const selector =
-      document.getElementById(
-        "languageSelect"
-      );
+      <div class="parameter">
+        <strong>840,000</strong>
+        <span data-i18n="halving_blocks">
+          Blocks per halving era
+        </span>
+      </div>
 
 
-    const savedLanguage =
-      localStorage.getItem(
-        "velta-language"
-      );
+      <div class="parameter">
+        <strong>Proof-of-Work</strong>
+        <span data-i18n="consensus">
+          Consensus
+        </span>
+      </div>
 
+    </div>
 
-    let initialLanguage =
-      "en";
+  </div>
 
+</section>
 
-    if (
-      savedLanguage
-      &&
-      translations[savedLanguage]
-    ) {
 
-      initialLanguage =
-        savedLanguage;
+<!-- =======================================================
+     CREATOR
+======================================================= -->
 
-    } else {
+<section
+  id="creator"
+  class="section"
+>
 
-      const browserLanguage =
-        navigator.language
-          .toLowerCase();
+  <div class="container">
+
+    <div
+      class="section-kicker"
+      data-i18n="creator_kicker"
+    >
+      About the creator
+    </div>
+
+
+    <h2
+      class="section-title"
+      data-i18n="creator_title"
+    >
+      Why I created Velta
+    </h2>
+
+
+    <div class="author-box">
+
+      <div class="author-mark">
+        KAMACHI
+      </div>
+
+
+      <div class="author-content">
+
+        <h3>
+          KAMACHI
+        </h3>
+
+
+        <p data-i18n="creator_p1">
+          I created Velta as an independent software and
+          peer-to-peer digital currency project. My goal was to
+          understand, build and make available a network in which
+          transactions, mining and blockchain history can be
+          independently verified.
+        </p>
+
+
+        <p data-i18n="creator_p2">
+          Velta was not created as a mechanism for giving me a
+          privileged financial position over other participants.
+          I want the protocol rules to be visible, the software to
+          be inspectable and the network to evolve through public
+          and verifiable code.
+        </p>
+
+
+        <p data-i18n="creator_p3">
+          The development process has included real mining,
+          transactions between computers, network synchronization,
+          wallet recovery tests, Art Block tests and repeated
+          experiments intended to expose technical problems before
+          any public launch.
+        </p>
+
+
+        <p data-i18n="creator_p4">
+          The official GitHub repository exists to provide a public
+          reference for the original project, its source code and
+          official releases.
+        </p>
+
+
+        <div class="transparency-box">
+
+          <h3 data-i18n="test_wallet_title">
+            Development wallet transparency
+          </h3>
+
+
+          <p data-i18n="test_wallet_text">
+            Two wallets were used during development exclusively
+            for technical testing of mining, transactions,
+            synchronization and Art Blocks. Blockchain records
+            created during these tests form part of the historical
+            development chain and should not be artificially
+            rewritten simply to hide the tests. The local wallet
+            files may be removed from development computers, and
+            these wallets are not intended for commercial trading,
+            sale or financial advantage by the project creator.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     DOWNLOAD
+======================================================= -->
+
+<section
+  id="download"
+  class="section section-soft"
+>
+
+  <div class="container">
+
+    <div
+      class="section-kicker"
+      data-i18n="download_kicker"
+    >
+      Official distribution
+    </div>
+
+
+    <h2
+      class="section-title"
+      data-i18n="download_title"
+    >
+      Download Velta from the official source
+    </h2>
+
+
+    <p
+      class="section-intro"
+      data-i18n="download_intro"
+    >
+      Official builds, checksums and release information will be
+      published through this GitHub project.
+    </p>
+
+
+    <div class="release">
+
+      <div>
+
+        <div
+          class="release-label"
+          data-i18n="release_status"
+        >
+          DEVELOPMENT RELEASE
+        </div>
+
+
+        <h3>
+          Velta for Windows
+        </h3>
+
+
+        <p data-i18n="release_text">
+          Public release packages will appear on GitHub Releases.
+        </p>
+
+
+        <div
+          class="checksum"
+          data-i18n="checksum_text"
+        >
+          SHA-256 will be published with each official build.
+        </div>
+
+      </div>
+
+
+      <a
+        href="https://github.com/velta-core/velta/releases"
+        target="_blank"
+        class="button button-primary"
+        data-i18n="releases_button"
+      >
+        Official Releases
+      </a>
+
+    </div>
+
+
+    <div class="security-notice">
+
+      <strong data-i18n="security_title">
+        Security notice:
+      </strong>
+
+      <span data-i18n="security_text">
+        Because Velta is open source, anyone can create a modified
+        version. A modified program is not automatically an
+        official Velta release. Verify the source, release page and
+        published checksum before installing software distributed
+        by third parties.
+      </span>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+  <div class="container footer-row">
+
+    <div data-i18n="footer_text">
+      © 2026 Velta — Open peer-to-peer digital currency project.
+    </div>
+
+
+    <div>
+
+      GitHub:
+
+      <a
+        href="https://github.com/velta-core/velta"
+        target="_blank"
+      >
+        velta-core/velta
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<script>
+
+const translations = {
+
+
+  /* ======================================================
+     ENGLISH
+  ====================================================== */
+
+  en: {
+
+    nav_about: "About",
+    nav_blockchain: "Blockchain",
+    nav_mining: "Mining",
+    nav_creator: "Creator",
+    nav_download: "Download",
+
+    official_project:
+      "Official Velta Project",
+
+    hero_title:
+      'An open digital currency built <strong>peer to peer.</strong>',
+
+    hero_text:
+      "Velta is an independent open-source digital currency and blockchain network designed around direct transactions, Proof-of-Work mining, transparent verification and decentralized communication between computers.",
+
+    download_velta:
+      "Download Velta",
+
+    source_code:
+      "View source code",
+
+    official_source:
+      "Official project source:",
+
+
+    what_kicker:
+      "Understanding Velta",
+
+    what_title:
+      "What exactly is Velta?",
+
+    what_p1:
+      "Velta is software, a peer-to-peer network and a digital monetary system operating together. Instead of relying on one central computer to decide which transactions are valid, multiple independent Velta nodes maintain and verify a shared blockchain.",
+
+    what_p2:
+      "A user can create a wallet, receive VT, send VT directly to another wallet and independently inspect the blockchain. Miners provide computational work to organize transactions into blocks and protect the history of the network.",
+
+    what_p3:
+      "Every compatible node follows the same consensus rules. Those rules define what a valid transaction is, how blocks are connected, how mining difficulty behaves, how new VT can be issued and how the total monetary supply is limited.",
+
+    what_p4:
+      "Because the project is open source, the objective is not to ask users to trust a hidden server or hidden accounting system. The software and protocol can be inspected, tested and compared by independent participants.",
+
+    direct_title:
+      "Direct transactions",
+
+    direct_text:
+      "Wallets can transfer VT directly through the Velta network without requiring a central payment database.",
+
+    pow_title:
+      "Proof-of-Work",
+
+    pow_text:
+      "Mining provides computational work that helps secure the blockchain and establish accepted blocks.",
+
+    verify_title:
+      "Independent verification",
+
+    verify_text:
+      "Nodes verify transactions and blocks according to consensus rather than trusting a central authority.",
+
+
+    blockchain_kicker:
+      "How the network works",
+
+    blockchain_title:
+      "Computers forming one shared blockchain",
+
+    blockchain_intro:
+      "Velta is not a website database stored on one machine. Compatible computers communicate with peers, exchange transactions and blocks, and independently verify whether the information follows the protocol.",
+
+    diagram_title:
+      "Example of peer-to-peer communication",
+
+    node_a:
+      "Computer A",
+
+    wallet_sends:
+      "Wallet sends a transaction",
+
+    p2p_network:
+      "Velta P2P Network",
+
+    nodes_relay:
+      "Peers relay valid information",
+
+    node_b:
+      "Computer B",
+
+    node_verifies:
+      "Node independently verifies it",
+
+    step1_title:
+      "A transaction is created",
+
+    step1_text:
+      "A wallet signs a transaction using its private key.",
+
+    step2_title:
+      "Peers receive it",
+
+    step2_text:
+      "Nodes verify signatures, values and spendable outputs.",
+
+    step3_title:
+      "Miners work",
+
+    step3_text:
+      "Valid transactions can be included in a mined block.",
+
+    step4_title:
+      "The block is verified",
+
+    step4_text:
+      "Other nodes independently verify the new block before accepting it.",
+
+    chain_title:
+      "Why old blocks are difficult to change",
+
+    chain_intro:
+      "Every block references information from the previous block. Changing historical data changes its cryptographic hash and breaks the relationship with the blocks that follow it.",
+
+
+    mining_kicker:
+      "Network security",
+
+    mining_title:
+      "Mining Velta",
+
+    mining_intro:
+      "Velta uses Proof-of-Work. Mining software performs computational work in an attempt to create a valid block. Other nodes do not simply trust the miner: the block must still satisfy the consensus rules before being accepted.",
+
+    gpu_title:
+      "GPU mining",
+
+    gpu_text:
+      "Velta can use compatible graphics hardware for Proof-of-Work computation.",
+
+    gpu_limit_title:
+      "Usage control",
+
+    gpu_limit_text:
+      "Users can reduce the maximum mining load instead of keeping the GPU continuously at full utilization.",
+
+    thermal_title:
+      "Thermal protection",
+
+    thermal_text:
+      "When supported by the hardware, Velta can monitor GPU temperature and stop mining at a configured limit.",
+
+
+    art_title:
+      "Rare digital items created by the blockchain",
+
+    art_p1:
+      "Velta includes Art Blocks, a native system for rare digital items associated with eligible blocks.",
+
+    art_p2:
+      "The purpose is different from simply uploading an image to a centralized database. Eligibility is based on rules recognized by the Velta network, allowing compatible nodes to verify whether an Art Block is legitimate.",
+
+    art_p3:
+      "This makes Art Blocks a native part of the Velta experiment: mining, blockchain history, rarity and digital ownership are connected in the same network.",
+
+
+    economics_kicker:
+      "Monetary design",
+
+    economics_title:
+      "Scarcity defined by protocol",
+
+    economics_intro:
+      "The public network parameters are designed to define issuance through consensus rather than through a central administrator changing balances.",
+
+    max_supply:
+      "Maximum supply",
+
+    block_target:
+      "Block target",
+
+    halving_blocks:
+      "Blocks per halving era",
+
+    consensus:
+      "Consensus",
+
+
+    creator_kicker:
+      "About the creator",
+
+    creator_title:
+      "Why I created Velta",
+
+    creator_p1:
+      "I created Velta as an independent software and peer-to-peer digital currency project. My goal was to understand, build and make available a network in which transactions, mining and blockchain history can be independently verified.",
+
+    creator_p2:
+      "Velta was not created as a mechanism for giving me a privileged financial position over other participants. I want the protocol rules to be visible, the software to be inspectable and the network to evolve through public and verifiable code.",
+
+    creator_p3:
+      "The development process has included real mining, transactions between computers, network synchronization, wallet recovery tests, Art Block tests and repeated experiments intended to expose technical problems before any public launch.",
+
+    creator_p4:
+      "The official GitHub repository exists to provide a public reference for the original project, its source code and official releases.",
+
+    test_wallet_title:
+      "Development wallet transparency",
+
+    test_wallet_text:
+      "Two wallets were used during development exclusively for technical testing of mining, transactions, synchronization and Art Blocks. Blockchain records created during these tests form part of the historical development chain and should not be artificially rewritten simply to hide the tests. The local wallet files may be removed from development computers, and these wallets are not intended for commercial trading, sale or financial advantage by the project creator.",
+
+
+    download_kicker:
+      "Official distribution",
+
+    download_title:
+      "Download Velta from the official source",
+
+    download_intro:
+      "Official builds, checksums and release information will be published through this GitHub project.",
+
+    release_status:
+      "DEVELOPMENT RELEASE",
+
+    release_text:
+      "Public release packages will appear on GitHub Releases.",
+
+    checksum_text:
+      "SHA-256 will be published with each official build.",
+
+    releases_button:
+      "Official Releases",
+
+    security_title:
+      "Security notice:",
+
+    security_text:
+      " Because Velta is open source, anyone can create a modified version. A modified program is not automatically an official Velta release. Verify the source, release page and published checksum before installing software distributed by third parties.",
+
+    footer_text:
+      "© 2026 Velta — Open peer-to-peer digital currency project."
+
+  },
+
+
+  /* ======================================================
+     PORTUGUÊS
+  ====================================================== */
+
+  pt: {
+
+    nav_about: "Sobre",
+    nav_blockchain: "Blockchain",
+    nav_mining: "Mineração",
+    nav_creator: "Criador",
+    nav_download: "Download",
+
+    official_project:
+      "Projeto Oficial Velta",
+
+    hero_title:
+      'Uma moeda digital aberta construída <strong>ponto a ponto.</strong>',
+
+    hero_text:
+      "Velta é uma moeda digital independente, de código aberto, e uma rede blockchain desenvolvida para transações diretas, mineração Proof-of-Work, verificação transparente e comunicação descentralizada entre computadores.",
+
+    download_velta:
+      "Baixar Velta",
+
+    source_code:
+      "Ver código-fonte",
+
+    official_source:
+      "Fonte oficial do projeto:",
+
+
+    what_kicker:
+      "Entendendo a Velta",
+
+    what_title:
+      "O que exatamente é a Velta?",
+
+    what_p1:
+      "A Velta é, ao mesmo tempo, um software, uma rede ponto a ponto e um sistema monetário digital. Em vez de depender de um único computador central para decidir quais transações são válidas, vários nós independentes mantêm e verificam uma blockchain compartilhada.",
+
+    what_p2:
+      "Um usuário pode criar uma carteira, receber VT, enviar VT diretamente para outra carteira e consultar a blockchain. Os mineradores fornecem trabalho computacional para organizar transações em blocos e ajudar a proteger o histórico da rede.",
+
+    what_p3:
+      "Cada nó compatível segue as mesmas regras de consenso. Essas regras definem o que é uma transação válida, como os blocos são conectados, como a dificuldade de mineração funciona, como novos VT podem ser emitidos e como a oferta monetária total é limitada.",
+
+    what_p4:
+      "Como o projeto é de código aberto, a proposta não é pedir que o usuário confie em um servidor escondido ou em uma contabilidade secreta. O software e o protocolo podem ser inspecionados, testados e comparados por participantes independentes.",
+
+    direct_title:
+      "Transações diretas",
+
+    direct_text:
+      "Carteiras podem transferir VT diretamente através da rede Velta sem depender de uma base central de pagamentos.",
+
+    pow_title:
+      "Proof-of-Work",
+
+    pow_text:
+      "A mineração fornece trabalho computacional que ajuda a proteger a blockchain e estabelecer blocos aceitos.",
+
+    verify_title:
+      "Verificação independente",
+
+    verify_text:
+      "Os nós verificam transações e blocos pelas regras de consenso em vez de simplesmente confiar em uma autoridade central.",
+
+
+    blockchain_kicker:
+      "Como a rede funciona",
+
+    blockchain_title:
+      "Computadores formando uma única blockchain compartilhada",
+
+    blockchain_intro:
+      "A Velta não é uma base de dados de um site guardada em uma única máquina. Computadores compatíveis se conectam a outros peers, trocam transações e blocos e verificam independentemente se as informações seguem as regras do protocolo.",
+
+    diagram_title:
+      "Exemplo de comunicação ponto a ponto",
+
+    node_a:
+      "Computador A",
+
+    wallet_sends:
+      "A carteira envia uma transação",
+
+    p2p_network:
+      "Rede P2P Velta",
+
+    nodes_relay:
+      "Peers propagam informações válidas",
+
+    node_b:
+      "Computador B",
+
+    node_verifies:
+      "O nó verifica de forma independente",
+
+    step1_title:
+      "Uma transação é criada",
+
+    step1_text:
+      "A carteira assina a transação usando sua chave privada.",
+
+    step2_title:
+      "Os peers recebem",
+
+    step2_text:
+      "Os nós verificam assinatura, valores e saídas disponíveis.",
+
+    step3_title:
+      "Os mineradores trabalham",
+
+    step3_text:
+      "Transações válidas podem ser incluídas em um bloco minerado.",
+
+    step4_title:
+      "O bloco é verificado",
+
+    step4_text:
+      "Os demais nós verificam o novo bloco antes de aceitá-lo.",
+
+    chain_title:
+      "Por que blocos antigos são difíceis de modificar",
+
+    chain_intro:
+      "Cada bloco guarda uma referência criptográfica ao bloco anterior. Alterar dados históricos modifica o hash e rompe a relação com os blocos seguintes.",
+
+
+    mining_kicker:
+      "Segurança da rede",
+
+    mining_title:
+      "Mineração da Velta",
+
+    mining_intro:
+      "A Velta utiliza Proof-of-Work. O software de mineração realiza trabalho computacional na tentativa de produzir um bloco válido. Os outros nós não simplesmente confiam no minerador: o bloco ainda precisa cumprir todas as regras de consenso antes de ser aceito.",
+
+    gpu_title:
+      "Mineração por GPU",
+
+    gpu_text:
+      "A Velta pode utilizar hardware gráfico compatível para realizar cálculos de Proof-of-Work.",
+
+    gpu_limit_title:
+      "Controle de utilização",
+
+    gpu_limit_text:
+      "O usuário pode reduzir a carga máxima da mineração em vez de manter a GPU constantemente em utilização total.",
+
+    thermal_title:
+      "Proteção térmica",
+
+    thermal_text:
+      "Quando o hardware fornece a telemetria necessária, a Velta pode monitorar a temperatura da GPU e interromper a mineração no limite configurado.",
+
+
+    art_title:
+      "Itens digitais raros criados pela blockchain",
+
+    art_p1:
+      "A Velta inclui os Art Blocks, um sistema nativo para itens digitais raros associados a blocos elegíveis da própria rede.",
+
+    art_p2:
+      "A proposta é diferente de simplesmente enviar uma imagem para uma base centralizada. A elegibilidade é determinada por regras reconhecidas pela rede Velta, permitindo que outros nós compatíveis verifiquem se um Art Block é legítimo.",
+
+    art_p3:
+      "Isso torna os Art Blocks parte nativa da experiência Velta: mineração, histórico da blockchain, raridade e propriedade digital ficam conectados dentro da mesma rede.",
+
+
+    economics_kicker:
+      "Projeto monetário",
+
+    economics_title:
+      "Escassez definida pelo protocolo",
+
+    economics_intro:
+      "Os parâmetros da rede pública são estruturados para que a emissão seja definida pelas regras de consenso, e não por um administrador central alterando saldos.",
+
+    max_supply:
+      "Oferta máxima",
+
+    block_target:
+      "Tempo-alvo de bloco",
+
+    halving_blocks:
+      "Blocos por ciclo de halving",
+
+    consensus:
+      "Consenso",
+
+
+    creator_kicker:
+      "Sobre o criador",
+
+    creator_title:
+      "Por que eu criei a Velta",
+
+    creator_p1:
+      "Eu criei a Velta como um projeto independente de software e moeda digital ponto a ponto. Minha ideia foi compreender, construir e disponibilizar uma rede em que transações, mineração e histórico da blockchain possam ser verificados de forma independente.",
+
+    creator_p2:
+      "A Velta não foi criada como um mecanismo para me dar uma posição financeira privilegiada em relação aos demais participantes. Quero que as regras do protocolo sejam visíveis, que o software possa ser inspecionado e que a rede possa evoluir através de código público e verificável.",
+
+    creator_p3:
+      "O processo de desenvolvimento envolveu mineração real, transações entre computadores, sincronização da rede, testes de recuperação de carteira, testes dos Art Blocks e vários experimentos destinados a encontrar problemas técnicos antes de qualquer lançamento público.",
+
+    creator_p4:
+      "O repositório oficial no GitHub existe para criar uma referência pública do projeto original, do código-fonte e dos lançamentos oficiais.",
+
+    test_wallet_title:
+      "Transparência sobre as carteiras de desenvolvimento",
+
+    test_wallet_text:
+      "Duas carteiras foram utilizadas durante o desenvolvimento exclusivamente para testes técnicos de mineração, transações, sincronização e Art Blocks. Os registros criados durante esses testes fazem parte do histórico técnico da blockchain de desenvolvimento e não devem ser artificialmente reescritos apenas para esconder os testes. Os arquivos locais dessas carteiras podem ser removidos dos computadores de desenvolvimento, e essas carteiras não têm como finalidade negociação comercial, venda ou obtenção de vantagem financeira pelo criador do projeto.",
+
+
+    download_kicker:
+      "Distribuição oficial",
+
+    download_title:
+      "Baixe a Velta pela fonte oficial",
+
+    download_intro:
+      "Versões oficiais, checksums e informações dos lançamentos serão publicados através deste projeto no GitHub.",
+
+    release_status:
+      "VERSÃO DE DESENVOLVIMENTO",
+
+    release_text:
+      "Os pacotes públicos aparecerão na área GitHub Releases.",
+
+    checksum_text:
+      "O SHA-256 será publicado junto com cada compilação oficial.",
+
+    releases_button:
+      "Lançamentos oficiais",
+
+    security_title:
+      "Aviso de segurança:",
+
+    security_text:
+      " Como a Velta é de código aberto, qualquer pessoa pode criar uma versão modificada. Um programa modificado não se torna automaticamente uma versão oficial da Velta. Verifique a fonte, a página do lançamento e o checksum publicado antes de instalar software distribuído por terceiros.",
+
+    footer_text:
+      "© 2026 Velta — Projeto aberto de moeda digital ponto a ponto."
+
+  },
+
+
+  /* ======================================================
+     ESPAÑOL
+  ====================================================== */
+
+  es: {
+
+    nav_about: "Acerca de",
+    nav_blockchain: "Blockchain",
+    nav_mining: "Minería",
+    nav_creator: "Creador",
+    nav_download: "Descargar",
+
+    official_project:
+      "Proyecto Oficial Velta",
+
+    hero_title:
+      'Una moneda digital abierta construida <strong>punto a punto.</strong>',
+
+    hero_text:
+      "Velta es una moneda digital independiente de código abierto y una red blockchain diseñada para transacciones directas, minería Proof-of-Work, verificación transparente y comunicación descentralizada entre computadoras.",
+
+    download_velta:
+      "Descargar Velta",
+
+    source_code:
+      "Ver código fuente",
+
+    official_source:
+      "Fuente oficial del proyecto:",
+
+
+    what_kicker:
+      "Entendiendo Velta",
+
+    what_title:
+      "¿Qué es exactamente Velta?",
+
+    what_p1:
+      "Velta es al mismo tiempo un software, una red punto a punto y un sistema monetario digital. En lugar de depender de una sola computadora central para decidir qué transacciones son válidas, varios nodos independientes mantienen y verifican una blockchain compartida.",
+
+    what_p2:
+      "Un usuario puede crear una billetera, recibir VT, enviar VT directamente a otra billetera y consultar la blockchain. Los mineros aportan trabajo computacional para organizar transacciones en bloques y proteger el historial de la red.",
+
+    what_p3:
+      "Cada nodo compatible sigue las mismas reglas de consenso. Estas reglas definen qué es una transacción válida, cómo se conectan los bloques, cómo funciona la dificultad de minería, cómo se emiten nuevos VT y cómo se limita la oferta monetaria total.",
+
+    what_p4:
+      "Al ser un proyecto de código abierto, la propuesta no es pedir al usuario que confíe en un servidor oculto o una contabilidad secreta. El software y el protocolo pueden ser inspeccionados y probados de forma independiente.",
+
+    direct_title:
+      "Transacciones directas",
+
+    direct_text:
+      "Las billeteras pueden transferir VT directamente a través de la red Velta sin una base de pagos central.",
+
+    pow_title:
+      "Proof-of-Work",
+
+    pow_text:
+      "La minería aporta trabajo computacional que ayuda a proteger la blockchain.",
+
+    verify_title:
+      "Verificación independiente",
+
+    verify_text:
+      "Los nodos verifican transacciones y bloques mediante consenso en lugar de confiar en una autoridad central.",
+
+
+    blockchain_kicker:
+      "Cómo funciona la red",
+
+    blockchain_title:
+      "Computadoras formando una blockchain compartida",
+
+    blockchain_intro:
+      "Velta no es simplemente una base de datos almacenada en una máquina. Los computadores compatibles se conectan con peers, intercambian transacciones y bloques y verifican de forma independiente que la información siga las reglas del protocolo.",
+
+    diagram_title:
+      "Ejemplo de comunicación punto a punto",
+
+    node_a:
+      "Computadora A",
+
+    wallet_sends:
+      "La billetera envía una transacción",
+
+    p2p_network:
+      "Red P2P Velta",
+
+    nodes_relay:
+      "Los peers propagan información válida",
+
+    node_b:
+      "Computadora B",
+
+    node_verifies:
+      "El nodo la verifica independientemente",
+
+    step1_title:
+      "Se crea una transacción",
+
+    step1_text:
+      "La billetera firma la transacción con su clave privada.",
+
+    step2_title:
+      "Los peers la reciben",
+
+    step2_text:
+      "Los nodos verifican firmas, valores y salidas disponibles.",
+
+    step3_title:
+      "Los mineros trabajan",
+
+    step3_text:
+      "Las transacciones válidas pueden entrar en un bloque.",
+
+    step4_title:
+      "El bloque es verificado",
+
+    step4_text:
+      "Los demás nodos verifican el nuevo bloque antes de aceptarlo.",
+
+    chain_title:
+      "Por qué los bloques antiguos son difíciles de modificar",
+
+    chain_intro:
+      "Cada bloque contiene una referencia criptográfica al bloque anterior. Cambiar datos históricos modifica su hash y rompe la relación con los bloques siguientes.",
+
+
+    mining_kicker:
+      "Seguridad de la red",
+
+    mining_title:
+      "Minería de Velta",
+
+    mining_intro:
+      "Velta utiliza Proof-of-Work. El software de minería realiza trabajo computacional para intentar producir un bloque válido. Los demás nodos todavía verifican todas las reglas antes de aceptar ese bloque.",
+
+    gpu_title:
+      "Minería por GPU",
+
+    gpu_text:
+      "Velta puede utilizar hardware gráfico compatible para cálculos de Proof-of-Work.",
+
+    gpu_limit_title:
+      "Control de uso",
+
+    gpu_limit_text:
+      "El usuario puede reducir la carga máxima de minería para no mantener permanentemente la GPU al máximo.",
+
+    thermal_title:
+      "Protección térmica",
+
+    thermal_text:
+      "Cuando el hardware lo permite, Velta puede controlar la temperatura de la GPU y detener la minería en un límite configurado.",
+
+
+    art_title:
+      "Elementos digitales raros creados por la blockchain",
+
+    art_p1:
+      "Velta incluye Art Blocks, un sistema nativo de elementos digitales raros asociados a bloques elegibles.",
+
+    art_p2:
+      "La propuesta es diferente de simplemente subir una imagen a una base centralizada. La elegibilidad depende de reglas reconocidas por la red, permitiendo verificar si un Art Block es legítimo.",
+
+    art_p3:
+      "Los Art Blocks conectan minería, historial blockchain, rareza y propiedad digital dentro de la misma red.",
+
+
+    economics_kicker:
+      "Diseño monetario",
+
+    economics_title:
+      "Escasez definida por protocolo",
+
+    economics_intro:
+      "Los parámetros de la red están diseñados para que la emisión sea definida por consenso y no por un administrador central modificando saldos.",
+
+    max_supply:
+      "Oferta máxima",
+
+    block_target:
+      "Tiempo objetivo de bloque",
+
+    halving_blocks:
+      "Bloques por ciclo de halving",
+
+    consensus:
+      "Consenso",
+
+
+    creator_kicker:
+      "Sobre el creador",
+
+    creator_title:
+      "Por qué creé Velta",
+
+    creator_p1:
+      "Creé Velta como un proyecto independiente de software y moneda digital punto a punto. Mi objetivo fue comprender, construir y poner a disposición una red en la que las transacciones, la minería y el historial blockchain puedan verificarse de forma independiente.",
+
+    creator_p2:
+      "Velta no fue creada para darme una posición financiera privilegiada frente a otros participantes. Quiero que las reglas del protocolo sean visibles y que el software pueda ser inspeccionado.",
+
+    creator_p3:
+      "El desarrollo ha incluido minería real, transacciones entre computadoras, sincronización de red, recuperación de billeteras, pruebas de Art Blocks y experimentos técnicos antes del lanzamiento público.",
+
+    creator_p4:
+      "El repositorio oficial de GitHub existe como referencia pública del proyecto original, su código fuente y sus lanzamientos oficiales.",
+
+    test_wallet_title:
+      "Transparencia sobre las billeteras de desarrollo",
+
+    test_wallet_text:
+      "Durante el desarrollo se utilizaron dos billeteras exclusivamente para pruebas técnicas de minería, transacciones, sincronización y Art Blocks. Los registros de estas pruebas forman parte del historial técnico de la blockchain de desarrollo. Los archivos locales pueden eliminarse de los equipos de desarrollo, y estas billeteras no están destinadas a comercio, venta ni obtención de ventaja financiera por parte del creador.",
+
+
+    download_kicker:
+      "Distribución oficial",
+
+    download_title:
+      "Descargue Velta desde la fuente oficial",
+
+    download_intro:
+      "Las versiones oficiales, checksums e información de lanzamiento se publicarán a través de este proyecto de GitHub.",
+
+    release_status:
+      "VERSIÓN DE DESARROLLO",
+
+    release_text:
+      "Los paquetes públicos aparecerán en GitHub Releases.",
+
+    checksum_text:
+      "El SHA-256 se publicará con cada compilación oficial.",
+
+    releases_button:
+      "Lanzamientos oficiales",
+
+    security_title:
+      "Aviso de seguridad:",
+
+    security_text:
+      " Como Velta es de código abierto, cualquier persona puede crear una versión modificada. Una modificación no es automáticamente una versión oficial de Velta. Verifique la fuente, la página del lanzamiento y el checksum antes de instalar software distribuido por terceros.",
+
+    footer_text:
+      "© 2026 Velta — Proyecto abierto de moneda digital punto a punto."
+
+  }
+
+};
+
+
+
+function applyLanguage(language) {
+
+  const dictionary =
+    translations[language]
+    || translations.en;
+
+
+  document
+    .querySelectorAll("[data-i18n]")
+    .forEach(element => {
+
+      const key =
+        element.getAttribute("data-i18n");
 
 
       if (
-        browserLanguage
-          .startsWith("pt")
+        dictionary[key] !== undefined
       ) {
 
-        initialLanguage =
-          "pt";
+        element.textContent =
+          dictionary[key];
 
       }
 
-      else if (
-        browserLanguage
-          .startsWith("es")
-      ) {
-
-        initialLanguage =
-          "es";
-
-      }
-
-    }
+    });
 
 
-    selector.value =
-      initialLanguage;
 
+  document
+    .querySelectorAll("[data-i18n-html]")
+    .forEach(element => {
 
-    applyLanguage(
-      initialLanguage
-    );
-
-
-    selector.addEventListener(
-      "change",
-      event => {
-
-        applyLanguage(
-          event.target.value
+      const key =
+        element.getAttribute(
+          "data-i18n-html"
         );
 
+
+      if (
+        dictionary[key] !== undefined
+      ) {
+
+        element.innerHTML =
+          dictionary[key];
+
       }
+
+    });
+
+
+  document.documentElement.lang =
+    language;
+
+
+  localStorage.setItem(
+    "velta-language",
+    language
+  );
+
+}
+
+
+
+const languageSelect =
+  document.getElementById(
+    "languageSelect"
+  );
+
+
+const savedLanguage =
+  localStorage.getItem(
+    "velta-language"
+  );
+
+
+let initialLanguage = "en";
+
+
+if (
+  savedLanguage &&
+  translations[savedLanguage]
+) {
+
+  initialLanguage =
+    savedLanguage;
+
+}
+
+else {
+
+  const browserLanguage =
+    navigator.language
+      .toLowerCase();
+
+
+  if (
+    browserLanguage.startsWith("pt")
+  ) {
+
+    initialLanguage = "pt";
+
+  }
+
+  else if (
+    browserLanguage.startsWith("es")
+  ) {
+
+    initialLanguage = "es";
+
+  }
+
+}
+
+
+
+languageSelect.value =
+  initialLanguage;
+
+
+applyLanguage(
+  initialLanguage
+);
+
+
+languageSelect.addEventListener(
+  "change",
+  event => {
+
+    applyLanguage(
+      event.target.value
     );
 
-  </script>
+  }
+);
+
+</script>
+
 
 </body>
 </html>
