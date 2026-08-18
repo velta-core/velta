@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Velta — Peer-to-Peer Digital Currency</title>
+
   <meta
     name="description"
     content="Velta is an open-source peer-to-peer digital currency, blockchain and mining network."
@@ -63,7 +65,7 @@
     }
 
     .nav {
-      height: 74px;
+      min-height: 74px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -96,16 +98,32 @@
         0 0 24px rgba(231,182,79,.25);
     }
 
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 22px;
       color: var(--muted);
       font-size: .95rem;
     }
 
     .nav-links a:hover {
       color: var(--text);
+    }
+
+    .language-select {
+      background: var(--panel);
+      color: var(--text);
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      padding: 9px 12px;
+      outline: none;
+      cursor: pointer;
     }
 
     .hero {
@@ -326,7 +344,7 @@
       flex-wrap: wrap;
     }
 
-    @media (max-width: 860px) {
+    @media (max-width: 900px) {
       .hero {
         grid-template-columns: 1fr;
         text-align: center;
@@ -361,6 +379,7 @@
 </head>
 
 <body>
+
   <header>
     <div class="container nav">
       <a href="#" class="brand">
@@ -368,33 +387,54 @@
         <span>VELTA</span>
       </a>
 
-      <nav class="nav-links">
-        <a href="#about">About</a>
-        <a href="#network">Network</a>
-        <a href="#download">Download</a>
-        <a href="https://github.com/velta-core/velta" target="_blank">GitHub</a>
-      </nav>
+      <div class="nav-right">
+        <nav class="nav-links">
+          <a href="#about" data-i18n="nav_about">About</a>
+          <a href="#network" data-i18n="nav_network">Network</a>
+          <a href="#download" data-i18n="nav_download">Download</a>
+          <a href="https://github.com/velta-core/velta" target="_blank">GitHub</a>
+        </nav>
+
+        <select
+          id="languageSelect"
+          class="language-select"
+          aria-label="Language"
+        >
+          <option value="en">English</option>
+          <option value="pt">Português</option>
+          <option value="es">Español</option>
+        </select>
+      </div>
     </div>
   </header>
 
   <main>
+
     <section class="container hero">
+
       <div>
-        <div class="eyebrow">Official Velta Project</div>
+        <div class="eyebrow" data-i18n="official_project">
+          Official Velta Project
+        </div>
 
         <h1>
-          Digital currency.<br />
-          <span>Peer to peer.</span>
+          <span data-i18n="hero_line_1">Digital currency.</span><br />
+          <span data-i18n="hero_line_2">Peer to peer.</span>
         </h1>
 
-        <p class="hero-text">
-          Velta is an open-source peer-to-peer digital currency and blockchain network
-          designed for direct transactions, decentralized mining and transparent
-          verification without a central authority.
+        <p class="hero-text" data-i18n="hero_text">
+          Velta is an open-source peer-to-peer digital currency and blockchain
+          network designed for direct transactions, decentralized mining and
+          transparent verification without a central authority.
         </p>
 
         <div class="actions">
-          <a class="btn btn-primary" href="#download">
+
+          <a
+            class="btn btn-primary"
+            href="#download"
+            data-i18n="download_velta"
+          >
             Download Velta
           </a>
 
@@ -402,13 +442,19 @@
             class="btn btn-secondary"
             href="https://github.com/velta-core/velta"
             target="_blank"
+            data-i18n="view_source"
           >
             View source code
           </a>
+
         </div>
 
         <div class="official-note">
-          Official repository and release source: <strong>velta-core / velta</strong>
+          <span data-i18n="official_repo">
+            Official repository and release source:
+          </span>
+
+          <strong>velta-core / velta</strong>
         </div>
       </div>
 
@@ -417,137 +463,551 @@
           <div class="v">V</div>
         </div>
       </div>
+
     </section>
 
+
     <section id="about" class="container">
+
       <div class="grid">
+
         <div class="card">
-          <h3>Peer-to-peer network</h3>
-          <p>
+          <h3 data-i18n="card_p2p_title">Peer-to-peer network</h3>
+
+          <p data-i18n="card_p2p_text">
             Velta nodes communicate directly with one another and independently
             validate the blockchain.
           </p>
         </div>
 
+
         <div class="card">
-          <h3>Proof-of-Work mining</h3>
-          <p>
+          <h3 data-i18n="card_pow_title">Proof-of-Work mining</h3>
+
+          <p data-i18n="card_pow_text">
             Miners secure the network, validate blocks and receive VT according
             to the consensus rules.
           </p>
         </div>
 
+
         <div class="card">
-          <h3>Transparent blockchain</h3>
-          <p>
+          <h3 data-i18n="card_blockchain_title">Transparent blockchain</h3>
+
+          <p data-i18n="card_blockchain_text">
             Blocks, transactions, wallet addresses and transaction history can
             be independently verified through the Velta blockchain explorer.
           </p>
         </div>
 
+
         <div class="card">
-          <h3>21 million VT</h3>
-          <p>
+          <h3 data-i18n="card_supply_title">21 million VT</h3>
+
+          <p data-i18n="card_supply_text">
             Velta has a defined maximum monetary supply and scheduled block
             reward reductions.
           </p>
         </div>
 
+
         <div class="card">
-          <h3>Open source</h3>
-          <p>
+          <h3 data-i18n="card_open_title">Open source</h3>
+
+          <p data-i18n="card_open_text">
             The source code is published so the network rules and software can
             be independently inspected.
           </p>
         </div>
 
+
         <div class="card">
-          <h3>Direct ownership</h3>
-          <p>
+          <h3 data-i18n="card_keys_title">Direct ownership</h3>
+
+          <p data-i18n="card_keys_text">
             Wallet private keys remain under the control of the wallet owner.
             Never share private keys, recovery data or wallet passwords.
           </p>
         </div>
+
       </div>
+
     </section>
 
-    <section id="network" class="section">
-      <div class="container">
-        <h2 class="section-title">The Velta network</h2>
 
-        <p class="section-subtitle">
+    <section id="network" class="section">
+
+      <div class="container">
+
+        <h2 class="section-title" data-i18n="network_title">
+          The Velta network
+        </h2>
+
+        <p class="section-subtitle" data-i18n="network_subtitle">
           Velta combines a peer-to-peer node network, Proof-of-Work consensus,
           wallet transactions and an independently verifiable blockchain.
         </p>
 
         <div class="card">
-          <p>
+          <p data-i18n="network_text">
             The network is designed so each compatible node verifies blocks
             and transactions according to the same consensus rules. Modified
             clients cannot simply create valid VT or rewrite accepted history
             unless their blocks satisfy the rules accepted by the network.
           </p>
         </div>
+
       </div>
+
     </section>
 
-    <section id="download" class="section">
-      <div class="container">
-        <h2 class="section-title">Official download</h2>
 
-        <p class="section-subtitle">
+    <section id="download" class="section">
+
+      <div class="container">
+
+        <h2 class="section-title" data-i18n="download_title">
+          Official download
+        </h2>
+
+        <p class="section-subtitle" data-i18n="download_subtitle">
           Download Velta only from the official GitHub repository and verify
           release checksums whenever possible.
         </p>
 
+
         <div class="release-box">
+
           <div>
-            <div class="version">Current development release</div>
+
+            <div class="version" data-i18n="current_release">
+              Current development release
+            </div>
 
             <h3>Velta for Windows</h3>
 
-            <p style="color: var(--muted); margin-top: 8px;">
+            <p
+              style="color: var(--muted); margin-top: 8px;"
+              data-i18n="release_text"
+            >
               Official public release packages will be published through
               GitHub Releases.
             </p>
 
-            <div class="hash">
+            <div class="hash" data-i18n="sha_text">
               SHA-256: will be published with each official release
             </div>
+
           </div>
+
 
           <a
             class="btn btn-primary"
             href="https://github.com/velta-core/velta/releases"
             target="_blank"
+            data-i18n="official_releases"
           >
             Official Releases
           </a>
+
         </div>
+
 
         <div class="warning">
-          <strong>Security:</strong> third parties may modify open-source code.
-          Software distributed outside this official repository is not an
-          official Velta release unless its checksum and release information
-          match the files published here.
+          <strong data-i18n="security_title">Security:</strong>
+
+          <span data-i18n="security_text">
+            third parties may modify open-source code. Software distributed
+            outside this official repository is not an official Velta release
+            unless its checksum and release information match the files
+            published here.
+          </span>
         </div>
+
       </div>
+
     </section>
+
   </main>
 
+
   <footer>
+
     <div class="container footer-row">
-      <div>
+
+      <div data-i18n="footer_text">
         © 2026 Velta. Open-source peer-to-peer digital currency project.
       </div>
 
       <div>
-        Official GitHub:
-        <a href="https://github.com/velta-core/velta" target="_blank">
+        <span data-i18n="official_github">Official GitHub:</span>
+
+        <a
+          href="https://github.com/velta-core/velta"
+          target="_blank"
+        >
           velta-core/velta
         </a>
       </div>
+
     </div>
+
   </footer>
+
+
+  <script>
+
+    const translations = {
+
+      en: {
+
+        nav_about: "About",
+        nav_network: "Network",
+        nav_download: "Download",
+
+        official_project: "Official Velta Project",
+
+        hero_line_1: "Digital currency.",
+        hero_line_2: "Peer to peer.",
+
+        hero_text:
+          "Velta is an open-source peer-to-peer digital currency and blockchain network designed for direct transactions, decentralized mining and transparent verification without a central authority.",
+
+        download_velta: "Download Velta",
+        view_source: "View source code",
+
+        official_repo:
+          "Official repository and release source:",
+
+        card_p2p_title: "Peer-to-peer network",
+
+        card_p2p_text:
+          "Velta nodes communicate directly with one another and independently validate the blockchain.",
+
+        card_pow_title: "Proof-of-Work mining",
+
+        card_pow_text:
+          "Miners secure the network, validate blocks and receive VT according to the consensus rules.",
+
+        card_blockchain_title: "Transparent blockchain",
+
+        card_blockchain_text:
+          "Blocks, transactions, wallet addresses and transaction history can be independently verified through the Velta blockchain explorer.",
+
+        card_supply_title: "21 million VT",
+
+        card_supply_text:
+          "Velta has a defined maximum monetary supply and scheduled block reward reductions.",
+
+        card_open_title: "Open source",
+
+        card_open_text:
+          "The source code is published so the network rules and software can be independently inspected.",
+
+        card_keys_title: "Direct ownership",
+
+        card_keys_text:
+          "Wallet private keys remain under the control of the wallet owner. Never share private keys, recovery data or wallet passwords.",
+
+        network_title: "The Velta network",
+
+        network_subtitle:
+          "Velta combines a peer-to-peer node network, Proof-of-Work consensus, wallet transactions and an independently verifiable blockchain.",
+
+        network_text:
+          "The network is designed so each compatible node verifies blocks and transactions according to the same consensus rules. Modified clients cannot simply create valid VT or rewrite accepted history unless their blocks satisfy the rules accepted by the network.",
+
+        download_title: "Official download",
+
+        download_subtitle:
+          "Download Velta only from the official GitHub repository and verify release checksums whenever possible.",
+
+        current_release: "Current development release",
+
+        release_text:
+          "Official public release packages will be published through GitHub Releases.",
+
+        sha_text:
+          "SHA-256: will be published with each official release",
+
+        official_releases: "Official Releases",
+
+        security_title: "Security:",
+
+        security_text:
+          " third parties may modify open-source code. Software distributed outside this official repository is not an official Velta release unless its checksum and release information match the files published here.",
+
+        footer_text:
+          "© 2026 Velta. Open-source peer-to-peer digital currency project.",
+
+        official_github: "Official GitHub:"
+      },
+
+
+      pt: {
+
+        nav_about: "Sobre",
+        nav_network: "Rede",
+        nav_download: "Download",
+
+        official_project: "Projeto Oficial Velta",
+
+        hero_line_1: "Moeda digital.",
+        hero_line_2: "Ponto a ponto.",
+
+        hero_text:
+          "Velta é uma moeda digital e uma rede blockchain de código aberto e ponto a ponto, desenvolvida para transações diretas, mineração descentralizada e verificação transparente sem uma autoridade central.",
+
+        download_velta: "Baixar Velta",
+        view_source: "Ver código-fonte",
+
+        official_repo:
+          "Repositório oficial e fonte dos lançamentos:",
+
+        card_p2p_title: "Rede ponto a ponto",
+
+        card_p2p_text:
+          "Os nós Velta se comunicam diretamente entre si e validam a blockchain de forma independente.",
+
+        card_pow_title: "Mineração Proof-of-Work",
+
+        card_pow_text:
+          "Os mineradores protegem a rede, validam blocos e recebem VT de acordo com as regras de consenso.",
+
+        card_blockchain_title: "Blockchain transparente",
+
+        card_blockchain_text:
+          "Blocos, transações, endereços de carteira e históricos de movimentação podem ser verificados de forma independente através do explorador da blockchain Velta.",
+
+        card_supply_title: "21 milhões de VT",
+
+        card_supply_text:
+          "A Velta possui uma oferta monetária máxima definida e reduções programadas da recompensa por bloco.",
+
+        card_open_title: "Código aberto",
+
+        card_open_text:
+          "O código-fonte é publicado para que as regras da rede e o software possam ser inspecionados de forma independente.",
+
+        card_keys_title: "Controle direto",
+
+        card_keys_text:
+          "As chaves privadas permanecem sob controle do proprietário da carteira. Nunca compartilhe chaves privadas, dados de recuperação ou senhas da carteira.",
+
+        network_title: "A rede Velta",
+
+        network_subtitle:
+          "A Velta combina uma rede de nós ponto a ponto, consenso Proof-of-Work, transações de carteira e uma blockchain verificável de forma independente.",
+
+        network_text:
+          "A rede foi projetada para que cada nó compatível valide blocos e transações segundo as mesmas regras de consenso. Clientes modificados não podem simplesmente criar VT válidos ou reescrever o histórico aceito sem que seus blocos satisfaçam as regras reconhecidas pela rede.",
+
+        download_title: "Download oficial",
+
+        download_subtitle:
+          "Baixe a Velta somente pelo repositório oficial no GitHub e verifique os checksums dos lançamentos sempre que possível.",
+
+        current_release: "Versão atual em desenvolvimento",
+
+        release_text:
+          "Os pacotes públicos oficiais serão publicados através do GitHub Releases.",
+
+        sha_text:
+          "SHA-256: será publicado junto de cada lançamento oficial",
+
+        official_releases: "Lançamentos oficiais",
+
+        security_title: "Segurança:",
+
+        security_text:
+          " terceiros podem modificar código-fonte aberto. Software distribuído fora deste repositório oficial não é uma versão oficial da Velta, a menos que o checksum e as informações do lançamento correspondam aos arquivos publicados aqui.",
+
+        footer_text:
+          "© 2026 Velta. Projeto de moeda digital ponto a ponto e código aberto.",
+
+        official_github: "GitHub oficial:"
+      },
+
+
+      es: {
+
+        nav_about: "Acerca de",
+        nav_network: "Red",
+        nav_download: "Descargar",
+
+        official_project: "Proyecto Oficial Velta",
+
+        hero_line_1: "Moneda digital.",
+        hero_line_2: "Punto a punto.",
+
+        hero_text:
+          "Velta es una moneda digital y una red blockchain de código abierto y punto a punto, diseñada para transacciones directas, minería descentralizada y verificación transparente sin una autoridad central.",
+
+        download_velta: "Descargar Velta",
+        view_source: "Ver código fuente",
+
+        official_repo:
+          "Repositorio oficial y fuente de lanzamientos:",
+
+        card_p2p_title: "Red punto a punto",
+
+        card_p2p_text:
+          "Los nodos Velta se comunican directamente entre sí y validan la blockchain de forma independiente.",
+
+        card_pow_title: "Minería Proof-of-Work",
+
+        card_pow_text:
+          "Los mineros protegen la red, validan bloques y reciben VT de acuerdo con las reglas de consenso.",
+
+        card_blockchain_title: "Blockchain transparente",
+
+        card_blockchain_text:
+          "Los bloques, transacciones, direcciones de billetera y el historial de movimientos pueden verificarse de forma independiente mediante el explorador blockchain de Velta.",
+
+        card_supply_title: "21 millones de VT",
+
+        card_supply_text:
+          "Velta posee una oferta monetaria máxima definida y reducciones programadas de la recompensa por bloque.",
+
+        card_open_title: "Código abierto",
+
+        card_open_text:
+          "El código fuente se publica para que las reglas de la red y el software puedan ser inspeccionados de forma independiente.",
+
+        card_keys_title: "Control directo",
+
+        card_keys_text:
+          "Las claves privadas permanecen bajo el control del propietario de la billetera. Nunca comparta claves privadas, datos de recuperación o contraseñas de la billetera.",
+
+        network_title: "La red Velta",
+
+        network_subtitle:
+          "Velta combina una red de nodos punto a punto, consenso Proof-of-Work, transacciones de billetera y una blockchain verificable de forma independiente.",
+
+        network_text:
+          "La red está diseñada para que cada nodo compatible valide bloques y transacciones según las mismas reglas de consenso. Los clientes modificados no pueden simplemente crear VT válidos o reescribir el historial aceptado sin que sus bloques cumplan las reglas reconocidas por la red.",
+
+        download_title: "Descarga oficial",
+
+        download_subtitle:
+          "Descargue Velta únicamente desde el repositorio oficial de GitHub y verifique los checksums de los lanzamientos siempre que sea posible.",
+
+        current_release: "Versión actual en desarrollo",
+
+        release_text:
+          "Los paquetes públicos oficiales serán publicados mediante GitHub Releases.",
+
+        sha_text:
+          "SHA-256: se publicará junto con cada lanzamiento oficial",
+
+        official_releases: "Lanzamientos oficiales",
+
+        security_title: "Seguridad:",
+
+        security_text:
+          " terceros pueden modificar código de fuente abierta. El software distribuido fuera de este repositorio oficial no es una versión oficial de Velta, a menos que su checksum y la información del lanzamiento coincidan con los archivos publicados aquí.",
+
+        footer_text:
+          "© 2026 Velta. Proyecto de moneda digital punto a punto y código abierto.",
+
+        official_github: "GitHub oficial:"
+      }
+
+    };
+
+
+    function applyLanguage(language) {
+
+      const dictionary =
+        translations[language] || translations.en;
+
+      document
+        .querySelectorAll("[data-i18n]")
+        .forEach(element => {
+
+          const key =
+            element.getAttribute("data-i18n");
+
+          if (dictionary[key] !== undefined) {
+            element.textContent =
+              dictionary[key];
+          }
+
+        });
+
+
+      document.documentElement.lang = language;
+
+      localStorage.setItem(
+        "velta-language",
+        language
+      );
+
+    }
+
+
+    const selector =
+      document.getElementById("languageSelect");
+
+
+    const savedLanguage =
+      localStorage.getItem("velta-language");
+
+
+    let initialLanguage = "en";
+
+
+    if (
+      savedLanguage &&
+      translations[savedLanguage]
+    ) {
+
+      initialLanguage =
+        savedLanguage;
+
+    } else {
+
+      const browserLanguage =
+        navigator.language
+          .toLowerCase();
+
+
+      if (browserLanguage.startsWith("pt")) {
+
+        initialLanguage = "pt";
+
+      } else if (
+        browserLanguage.startsWith("es")
+      ) {
+
+        initialLanguage = "es";
+
+      }
+
+    }
+
+
+    selector.value =
+      initialLanguage;
+
+
+    applyLanguage(
+      initialLanguage
+    );
+
+
+    selector.addEventListener(
+      "change",
+      event => {
+
+        applyLanguage(
+          event.target.value
+        );
+
+      }
+    );
+
+  </script>
+
 </body>
 </html>
