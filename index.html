@@ -69,19 +69,12 @@
       font-weight: 800;
       letter-spacing: 2px;
     }
-    .brand-coin {
+    .brand-coin-image {
       width: 36px;
       height: 36px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      color: #654100;
-      font-weight: 900;
-      background:
-        radial-gradient(circle at 35% 28%, #fff0ae 0 7%, transparent 8%),
-        linear-gradient(145deg, #f6cc65, #c98a17);
-      border: 2px solid #f2cf72;
-      box-shadow: inset 0 0 0 3px rgba(255,255,255,.15);
+      display: block;
+      object-fit: contain;
+      flex: 0 0 36px;
     }
     .nav-right { display: flex; align-items: center; gap: 22px; }
     .nav-links {
@@ -549,7 +542,11 @@
   <div class="container nav">
 
     <a href="#" class="brand">
-      <div class="brand-coin">V</div>
+      <img
+        src="./img%20VT%20-%20arquive%20PSP.png"
+        alt="Velta"
+        class="brand-coin-image"
+      >
       VELTA
     </a>
 
@@ -712,6 +709,97 @@
       </div>
 
     </div>
+  </div>
+</section>
+
+<!-- =======================================================
+     WHAT VELTA PROPOSES DIFFERENTLY
+======================================================= -->
+
+<section id="differentials" class="section">
+  <div class="container">
+
+    <div class="section-kicker" data-i18n="diff_kicker">
+      Velta's proposal
+    </div>
+
+    <h2 class="section-title" data-i18n="diff_title">
+      Built on known ideas, with its own proposals
+    </h2>
+
+    <p class="section-intro" data-i18n="diff_intro">
+      Velta does not claim to have invented digital currency,
+      blockchain, Proof-of-Work or peer-to-peer networking. These
+      concepts already existed before Velta and are known through
+      Bitcoin and other decentralized projects. Velta is an
+      independent implementation that combines those established
+      ideas with its own features and design choices.
+    </p>
+
+    <div class="info-grid">
+
+      <div class="info-card">
+        <div class="icon">◆</div>
+        <h3 data-i18n="diff_art_title">Art Blocks discovered through mining</h3>
+        <p data-i18n="diff_art_text">
+          Rare digital items can be discovered as part of the mining
+          process. They are not simply uploaded manually to a
+          centralized catalog.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <div class="icon">1×</div>
+        <h3 data-i18n="diff_unique_title">One legitimate unit</h3>
+        <p data-i18n="diff_unique_text">
+          Each valid Art Block has its own unique identifier. Once
+          recognized by the blockchain, that identifier represents
+          one exclusive item in the Velta network.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <div class="icon">GPU</div>
+        <h3 data-i18n="diff_control_title">Mining controls for ordinary users</h3>
+        <p data-i18n="diff_control_text">
+          GPU usage and thermal limits are integrated into the
+          application so the user can decide how much hardware to
+          dedicate to mining.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <div class="icon">◉</div>
+        <h3 data-i18n="diff_social_title">Community and voice in the same software</h3>
+        <p data-i18n="diff_social_text">
+          Wallet, mining, groups, friends, chat and voice calls are
+          brought together instead of requiring several separate
+          applications.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <div class="icon">⇄</div>
+        <h3 data-i18n="diff_p2p_title">Peer-to-peer blockchain</h3>
+        <p data-i18n="diff_p2p_text">
+          The blockchain is not controlled by one central server.
+          Compatible nodes exchange and verify network information
+          according to the same public rules.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <div class="icon">✓</div>
+        <h3 data-i18n="diff_open_title">Open and independently verifiable</h3>
+        <p data-i18n="diff_open_text">
+          The official source code, releases and checksums are
+          published so the project can be inspected and compared
+          independently.
+        </p>
+      </div>
+
+    </div>
+
   </div>
 </section>
 
@@ -1336,6 +1424,22 @@ const translations = {
     flow_community: "Participate",
     flow_community_s: "Chat, groups and voice",
 
+    diff_kicker: "Velta's proposal",
+    diff_title: "Built on known ideas, with its own proposals",
+    diff_intro: "Velta does not claim to have invented digital currency, blockchain, Proof-of-Work or peer-to-peer networking. These concepts already existed before Velta and are known through Bitcoin and other decentralized projects. Velta is an independent implementation that combines those established ideas with its own features and design choices.",
+    diff_art_title: "Art Blocks discovered through mining",
+    diff_art_text: "Rare digital items can be discovered as part of the mining process. They are not simply uploaded manually to a centralized catalog.",
+    diff_unique_title: "One legitimate unit",
+    diff_unique_text: "Each valid Art Block has its own unique identifier. Once recognized by the blockchain, that identifier represents one exclusive item in the Velta network.",
+    diff_control_title: "Mining controls for ordinary users",
+    diff_control_text: "GPU usage and thermal limits are integrated into the application so the user can decide how much hardware to dedicate to mining.",
+    diff_social_title: "Community and voice in the same software",
+    diff_social_text: "Wallet, mining, groups, friends, chat and voice calls are brought together instead of requiring several separate applications.",
+    diff_p2p_title: "Peer-to-peer blockchain",
+    diff_p2p_text: "The blockchain is not controlled by one central server. Compatible nodes exchange and verify network information according to the same public rules.",
+    diff_open_title: "Open and independently verifiable",
+    diff_open_text: "The official source code, releases and checksums are published so the project can be inspected and compared independently.",
+
     network_kicker: "Peer-to-peer network",
     network_title: "No central blockchain server",
     network_intro: "Velta is designed so the blockchain is not owned by one central server. Nodes communicate directly with peers, exchange transactions and blocks and independently verify whether the information follows the protocol.",
@@ -1401,10 +1505,10 @@ const translations = {
     voice_p1: "Voice calls are integrated into the community experience. A participant can call a friend without leaving the Velta application.",
     voice_p2: "The current voice engine uses WebRTC technology for real-time audio, microphone handling, network negotiation and echo-processing capabilities.",
 
-    art_title: "Rare digital items linked to mining",
-    art_p1: "Velta includes Art Blocks, a native system for rare digital items associated with eligible blocks in the blockchain.",
-    art_p2: "The idea is different from simply uploading an image to a centralized NFT service. Eligibility is determined by rules recognized by the Velta network, allowing other compatible nodes to verify whether an Art Block belongs to a legitimate block.",
-    art_p3: "Art Blocks connect mining, rarity, blockchain history and digital ownership in the same protocol, making them one of the distinctive experimental features of Velta.",
+    art_title: "Unique Art Blocks discovered through mining",
+    art_p1: "One of Velta's main proposals is Art Blocks: rare digital items that can be discovered through the mining process when the network rules identify an eligible block. They are not simply created manually and added to a catalog.",
+    art_p2: "Each valid Art Block receives its own unique identifier. The proposal is that one legitimate identifier corresponds to one exclusive item in the Velta network. Once that item is recognized by the blockchain, another legitimate copy cannot exist with the same identifier.",
+    art_p3: "For a non-technical user, the idea is similar to discovering a rare piece while mining: if the network recognizes it, it becomes part of the blockchain with its own identity. Mining, rarity, blockchain history and digital ownership are therefore connected inside the same protocol.",
 
     economics_kicker: "Monetary rules",
     economics_title: "Scarcity defined by consensus",
@@ -1416,7 +1520,7 @@ const translations = {
 
     creator_kicker: "About the creator",
     creator_title: "Why I created Velta",
-    creator_p1: "I created Velta as an independent software and peer-to-peer digital currency project. The idea was to build something I could understand from the inside and then make available as an open network that other people can inspect and participate in.",
+    creator_p1: "I developed Velta as an independent implementation built on ideas that already existed before this project, such as digital currency, blockchain, Proof-of-Work and peer-to-peer networking. My objective was not to claim those concepts as my invention, but to create my own project around them and add proposals that are specific to Velta.",
     creator_p2: "I wanted Velta to be approachable. A person should be able to install the software, create a wallet, connect to peers, mine using a compatible computer, inspect the blockchain and communicate with other participants without needing a collection of separate programs.",
     creator_p3: "The project was not created to give me a privileged financial position over everyone else. The objective is for the network rules to be public, for the software to be inspectable and for official releases to have a clear public source.",
     creator_p4: "Development has involved real tests between multiple computers: mining, wallet transfers, blockchain synchronization, recovery, community communication, voice calls and Art Blocks. The purpose of these tests was to expose problems before making the software public.",
@@ -1468,6 +1572,22 @@ const translations = {
     flow_mine_s: "Usar GPU compatível",
     flow_community: "Participar",
     flow_community_s: "Chat, grupos e voz",
+
+    diff_kicker: "A proposta da Velta",
+    diff_title: "Baseada em ideias conhecidas, com propostas próprias",
+    diff_intro: "A Velta não afirma ter inventado moeda digital, blockchain, Proof-of-Work ou redes ponto a ponto. Esses conceitos já existiam antes da Velta e são conhecidos por projetos como o Bitcoin e outras redes descentralizadas. A Velta é uma implementação independente que reúne essas ideias já conhecidas com recursos e escolhas próprias do projeto.",
+    diff_art_title: "Art Blocks descobertos pela mineração",
+    diff_art_text: "Itens digitais raros podem ser descobertos como parte do processo de mineração. Eles não são simplesmente enviados manualmente para um catálogo centralizado.",
+    diff_unique_title: "Uma única unidade legítima",
+    diff_unique_text: "Cada Art Block válido possui um identificador próprio e único. Depois de reconhecido pela blockchain, esse identificador representa um item exclusivo dentro da rede Velta.",
+    diff_control_title: "Controles de mineração para usuários comuns",
+    diff_control_text: "Controle de uso da GPU e limite térmico ficam dentro do aplicativo para que a pessoa escolha quanto do computador deseja dedicar à mineração.",
+    diff_social_title: "Comunidade e voz no mesmo software",
+    diff_social_text: "Carteira, mineração, grupos, amigos, chat e chamadas de voz ficam reunidos em vez de exigir vários programas separados.",
+    diff_p2p_title: "Blockchain ponto a ponto",
+    diff_p2p_text: "A blockchain não é controlada por um único servidor central. Nós compatíveis trocam e verificam as informações da rede seguindo as mesmas regras públicas.",
+    diff_open_title: "Aberta e verificável de forma independente",
+    diff_open_text: "Código-fonte oficial, lançamentos e checksums são publicados para que o projeto possa ser conferido e comparado por qualquer pessoa.",
 
     network_kicker: "Rede ponto a ponto",
     network_title: "Sem servidor central da blockchain",
@@ -1534,10 +1654,10 @@ const translations = {
     voice_p1: "As chamadas fazem parte da experiência da Comunidade. Um participante pode ligar para um amigo sem precisar sair do aplicativo Velta.",
     voice_p2: "O motor atual utiliza tecnologia WebRTC para áudio em tempo real, acesso ao microfone, negociação de rede e recursos de processamento de eco.",
 
-    art_title: "Itens digitais raros ligados à mineração",
-    art_p1: "A Velta inclui os Art Blocks, um sistema nativo para itens digitais raros associados a blocos elegíveis da blockchain.",
-    art_p2: "A ideia é diferente de simplesmente enviar uma imagem para um serviço NFT centralizado. A elegibilidade é determinada por regras reconhecidas pela própria rede Velta, permitindo que outros nós compatíveis verifiquem se o Art Block pertence a um bloco legítimo.",
-    art_p3: "Os Art Blocks conectam mineração, raridade, histórico da blockchain e propriedade digital dentro do mesmo protocolo, sendo uma das características experimentais próprias da Velta.",
+    art_title: "Art Blocks únicos descobertos durante a mineração",
+    art_p1: "Uma das principais propostas próprias da Velta são os Art Blocks: itens digitais raros que podem ser descobertos durante o processo de mineração quando as regras da rede identificam um bloco elegível. Eles não são simplesmente criados manualmente e colocados em um catálogo.",
+    art_p2: "Cada Art Block válido recebe um identificador próprio e único. A proposta é que um identificador legítimo corresponda a um único item exclusivo dentro da rede Velta. Depois que esse item é reconhecido pela blockchain, não pode existir outra cópia legítima com o mesmo identificador.",
+    art_p3: "Para quem não é técnico, a ideia é parecida com encontrar uma peça rara durante a mineração: se a rede reconhecer aquele Art Block, ele passa a fazer parte da blockchain com uma identidade própria. Mineração, raridade, histórico da blockchain e propriedade digital ficam ligados dentro do mesmo protocolo.",
 
     economics_kicker: "Regras monetárias",
     economics_title: "Escassez definida pelo consenso",
@@ -1549,7 +1669,7 @@ const translations = {
 
     creator_kicker: "Sobre o criador",
     creator_title: "Por que eu criei a Velta",
-    creator_p1: "Eu criei a Velta como um projeto independente de software e moeda digital ponto a ponto. Minha ideia foi construir algo que eu pudesse compreender por dentro e depois disponibilizar como uma rede aberta na qual outras pessoas pudessem participar e verificar o funcionamento.",
+    creator_p1: "Eu desenvolvi a Velta como uma implementação independente baseada em ideias que já existiam antes deste projeto, como moeda digital, blockchain, Proof-of-Work e redes ponto a ponto. Minha intenção não é dizer que inventei esses conceitos, mas criar um projeto próprio a partir deles e acrescentar propostas específicas da Velta.",
     creator_p2: "Eu queria que a Velta fosse acessível. A pessoa deveria conseguir instalar o software, criar uma carteira, conectar-se aos peers, minerar utilizando um computador compatível, consultar a blockchain e conversar com outros participantes sem precisar de vários programas separados.",
     creator_p3: "O projeto não foi criado para me dar uma posição financeira privilegiada sobre os demais participantes. A intenção é que as regras da rede sejam públicas, o software possa ser inspecionado e os lançamentos oficiais tenham uma fonte pública clara.",
     creator_p4: "O desenvolvimento envolveu testes reais entre vários computadores: mineração, transferências entre carteiras, sincronização da blockchain, recuperação, comunicação da comunidade, chamadas de voz e Art Blocks. O objetivo desses testes foi encontrar problemas antes de disponibilizar o software publicamente.",
@@ -1601,6 +1721,22 @@ const translations = {
     flow_mine_s: "Usar GPU compatible",
     flow_community: "Participar",
     flow_community_s: "Chat, grupos y voz",
+
+    diff_kicker: "La propuesta de Velta",
+    diff_title: "Basada en ideas conocidas, con propuestas propias",
+    diff_intro: "Velta no afirma haber inventado la moneda digital, blockchain, Proof-of-Work ni las redes punto a punto. Estos conceptos existían antes de Velta y son conocidos por proyectos como Bitcoin y otras redes descentralizadas. Velta es una implementación independiente que combina esas ideas conocidas con recursos y decisiones propias del proyecto.",
+    diff_art_title: "Art Blocks descubiertos mediante la minería",
+    diff_art_text: "Los elementos digitales raros pueden descubrirse como parte del proceso de minería. No se suben simplemente de forma manual a un catálogo centralizado.",
+    diff_unique_title: "Una sola unidad legítima",
+    diff_unique_text: "Cada Art Block válido posee un identificador propio y único. Una vez reconocido por la blockchain, ese identificador representa un elemento exclusivo dentro de la red Velta.",
+    diff_control_title: "Controles de minería para usuarios comunes",
+    diff_control_text: "El uso de GPU y los límites térmicos están integrados en la aplicación para que el usuario decida cuánto hardware dedicar a la minería.",
+    diff_social_title: "Comunidad y voz en el mismo software",
+    diff_social_text: "Billetera, minería, grupos, amigos, chat y llamadas de voz se reúnen en una sola aplicación en lugar de exigir varios programas separados.",
+    diff_p2p_title: "Blockchain punto a punto",
+    diff_p2p_text: "La blockchain no está controlada por un único servidor central. Los nodos compatibles intercambian y verifican información siguiendo las mismas reglas públicas.",
+    diff_open_title: "Abierta y verificable de forma independiente",
+    diff_open_text: "El código fuente oficial, los lanzamientos y los checksums se publican para que el proyecto pueda inspeccionarse y compararse de forma independiente.",
 
     network_kicker: "Red punto a punto",
     network_title: "Sin servidor central de blockchain",
@@ -1667,10 +1803,10 @@ const translations = {
     voice_p1: "Las llamadas están integradas en la experiencia de Comunidad. Un participante puede llamar a un amigo sin salir de la aplicación Velta.",
     voice_p2: "El motor actual utiliza tecnología WebRTC para audio en tiempo real, acceso al micrófono, negociación de red y procesamiento de eco.",
 
-    art_title: "Elementos digitales raros vinculados a la minería",
-    art_p1: "Velta incluye Art Blocks, un sistema nativo de elementos digitales raros asociados con bloques elegibles de la blockchain.",
-    art_p2: "La idea es diferente de simplemente subir una imagen a un servicio NFT centralizado. La elegibilidad es determinada por reglas reconocidas por la red Velta, permitiendo a otros nodos verificar si el Art Block pertenece a un bloque legítimo.",
-    art_p3: "Los Art Blocks conectan minería, rareza, historial blockchain y propiedad digital dentro del mismo protocolo, siendo una de las características experimentales distintivas de Velta.",
+    art_title: "Art Blocks únicos descubiertos durante la minería",
+    art_p1: "Una de las propuestas propias más importantes de Velta son los Art Blocks: elementos digitales raros que pueden descubrirse durante el proceso de minería cuando las reglas de la red identifican un bloque elegible. No se crean simplemente de forma manual para agregarlos a un catálogo.",
+    art_p2: "Cada Art Block válido recibe un identificador propio y único. La propuesta es que un identificador legítimo corresponda a un solo elemento exclusivo dentro de la red Velta. Una vez reconocido por la blockchain, no puede existir otra copia legítima con el mismo identificador.",
+    art_p3: "Para una persona no técnica, la idea se parece a encontrar una pieza rara durante la minería: si la red reconoce ese Art Block, pasa a formar parte de la blockchain con una identidad propia. Minería, rareza, historial blockchain y propiedad digital quedan conectados dentro del mismo protocolo.",
 
     economics_kicker: "Reglas monetarias",
     economics_title: "Escasez definida por consenso",
@@ -1682,7 +1818,7 @@ const translations = {
 
     creator_kicker: "Sobre el creador",
     creator_title: "Por qué creé Velta",
-    creator_p1: "Creé Velta como un proyecto independiente de software y moneda digital punto a punto. La idea fue construir algo que pudiera comprender desde dentro y luego ponerlo a disposición como una red abierta en la que otras personas puedan participar y verificar su funcionamiento.",
+    creator_p1: "Desarrollé Velta como una implementación independiente basada en ideas que ya existían antes de este proyecto, como moneda digital, blockchain, Proof-of-Work y redes punto a punto. Mi intención no es afirmar que inventé esos conceptos, sino crear un proyecto propio a partir de ellos y añadir propuestas específicas de Velta.",
     creator_p2: "Quería que Velta fuera accesible. Una persona debería poder instalar el software, crear una billetera, conectarse a peers, minar usando una computadora compatible, inspeccionar la blockchain y comunicarse con otros participantes sin necesitar varios programas separados.",
     creator_p3: "El proyecto no fue creado para darme una posición financiera privilegiada sobre los demás participantes. La intención es que las reglas de la red sean públicas, el software pueda inspeccionarse y los lanzamientos oficiales tengan una fuente pública clara.",
     creator_p4: "El desarrollo ha incluido pruebas reales entre varias computadoras: minería, transferencias entre billeteras, sincronización de blockchain, recuperación, comunicación de comunidad, llamadas de voz y Art Blocks. El objetivo de estas pruebas fue encontrar problemas antes de publicar el software.",
